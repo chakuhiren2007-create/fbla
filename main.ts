@@ -118,5 +118,5 @@ for (let index = 0; index < 5; index++) {
         ...............fceeec...............
         ...............ffceec...............
         `, SpriteKind.Player)
-    tiles.placeOnRandomTile(tree, sprites.castle.tileGrass1)
+    tiles.placeOnRandomTile(tree, sprites.castle.tileGrass2)
 }
