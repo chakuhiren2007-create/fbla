@@ -1,5 +1,4 @@
 game.splash("Press A/D or arrow keys to move")
-scene.setBackgroundImage(assets.image`sea`)
 let CColumbos = sprites.create(img`
     . . . . . . . f f f . . . . . . 
     . . . . f f f f f f f f f . . . 
