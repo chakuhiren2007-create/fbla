@@ -45,7 +45,7 @@ CColumbos.sayText("Hi Nice to Meet You")
 pause(3000)
 CColumbos.sayText("I'm Christopher Columbus", 5000, false)
 CColumbos.sayText("Chop 5 trees to move on ", 2000, false)
-CColumbos.sayText("Open a chest to find an axe to cut these tree down", 2000, false)
+CColumbos.sayText("Open a chest to find an axe to cut these tree down", 5000, false)
 scene.cameraFollowSprite(CColumbos)
 info.setScore(0)
 for (let index = 0; index < 5; index++) {
