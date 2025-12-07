@@ -144,6 +144,7 @@ let chest = sprites.create(img`
     b b b b b b b b b b b b b b b b 
     . b b . . . . . . . . . . b b . 
     `, SpriteKind.chest)
+scene.cameraFollowSprite(CColumbos)
 tiles.placeOnRandomTile(chest, sprites.castle.tileGrass3)
 CColumbos.setPosition(65, 100)
 controller.moveSprite(CColumbos)
@@ -154,7 +155,6 @@ pause(3000)
 CColumbos.sayText("I'm Christopher Columbus", 5000, false)
 CColumbos.sayText("Chop 5 trees to move on ", 2000, false)
 CColumbos.sayText("Open a chest to find an axe to cut these tree down", 5000, false)
-scene.cameraFollowSprite(CColumbos)
 info.setScore(0)
 for (let index = 0; index < 5; index++) {
     tree = sprites.create(img`
