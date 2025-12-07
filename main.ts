@@ -17,4 +17,4 @@ let CColumbos = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(CColumbos)
+controller.moveSprite(CColumbos, 100, 0)
