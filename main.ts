@@ -17,27 +17,3 @@ let _67gooningmaster = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(_67gooningmaster)
-scene.setBackgroundColor(0)
-animation.runImageAnimation(
-_67gooningmaster,
-[img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `],
-500,
-false
-)

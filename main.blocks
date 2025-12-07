@@ -15,21 +15,4 @@
 . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
-`</field><data>{"commentRefs":[],"fieldData":{"img":null}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="PQf.)@l:`e.UPdwnT[l/"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="game_control_sprite" id="KBu!5M=jiBN4ycfi]1=;"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="true"></mutation><value name="sprite"><block type="variables_get" id="aB4vTwNZY8:)l,_q@#|w"><field name="VAR" id="K*P0:|KIOJWSXM)tfx98">67gooningmaster</field></block></value><value name="vx"><shadow type="spriteSpeedPicker" id="z7U5Wp?)#,6Wjm$}B|,`"><field name="speed">100</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker" id="^~wkynQ$-m.bj1ky.q.y"><field name="speed">100</field></shadow></value><next><block type="gamesetbackgroundcolor" id="_?ykx_Nf;_w6T*ao4(|1"><value name="color"><shadow type="colorindexpicker" id=")g0qGi)}y_9Dzds81br)"><field name="index">0</field></shadow></value><next><block type="run_image_animation" id="sig=`uG;h!v(I$k!O]*P"><value name="sprite"><block type="variables_get" id="kVa-)VZ+kw3C3cWLC9Dj"><field name="VAR" id="K*P0:|KIOJWSXM)tfx98">67gooningmaster</field></block></value><value name="frames"><shadow type="animation_editor" id="~7;?Om?^AsKj!iJ0m`l+"><field name="frames">[img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`]</field><data>{"commentRefs":[],"fieldData":{"frames":null}}</data></shadow></value><value name="frameInterval"><shadow type="timePicker" id="Rn_WU/)1I#2CYkF7fHZW"><field name="ms">500</field></shadow></value><value name="loop"><shadow type="toggleOnOff" id="JZN)O5+1d=HPJ%C;VSR@"><field name="on">false</field></shadow></value></block></next></block></next></block></next></block></statement></block></xml>
+`</field><data>{"commentRefs":[],"fieldData":{"img":null}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="PQf.)@l:`e.UPdwnT[l/"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="game_control_sprite" id="KBu!5M=jiBN4ycfi]1=;"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="true"></mutation><value name="sprite"><block type="variables_get" id="aB4vTwNZY8:)l,_q@#|w"><field name="VAR" id="K*P0:|KIOJWSXM)tfx98">67gooningmaster</field></block></value><value name="vx"><shadow type="spriteSpeedPicker" id="z7U5Wp?)#,6Wjm$}B|,`"><field name="speed">100</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker" id="^~wkynQ$-m.bj1ky.q.y"><field name="speed">100</field></shadow></value></block></next></block></statement></block></xml>
