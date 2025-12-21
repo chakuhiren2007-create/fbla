@@ -1,25 +1,531 @@
+enum ActionKind {
+    Walking,
+    Idle,
+    Jumping
+}
 namespace SpriteKind {
     export const chest = SpriteKind.create()
+    export const tree = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.chest, function (sprite, otherSprite) {
-    CColumbos.setImage(img`
-        ......ffff...............
-        ....ffffffff.............
-        ...ffffffffff............
-        ..ffffffffffff...........
-        ..ffffffffffff...........
-        fffffffffffffffff..d..e..
-        fffffffffffffffff.dd.ee..
-        .eeefbf44fbfeeee.dddeeddd
-        .eeefbf44fbfeeee.ddeedddd
-        .eee4dddddd4eeeeddeeddddd
-        .eeeeddddd4eeff.deedddddd
-        ....ee4444ee4f..eeddddddd
-        ....f222222f1e.ee.dddd...
-        .444f222222f44ee..dddd...
-        ....f445544f.............
-        ....ffffffff.............
-        `)
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    CColumbos,
+    [img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . f f f f f 2 2 f f f f f . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e 2 f 2 f f 2 f 2 e f . . 
+        . . f f f 2 2 e e 2 2 f f f . . 
+        . f f e f 2 f e e f 2 f e f f . 
+        . f e e f f e e e e f e e e f . 
+        . . f e e e e e e e e e e f . . 
+        . . . f e e e e e e e e f . . . 
+        . . e 4 f f f f f f f f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 4 4 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . . f f f f 2 2 f f f f . . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e 2 f 2 f f f 2 f e f . . 
+        . . f f f 2 f e e 2 2 f f f . . 
+        . . f e 2 f f e e 2 f e e f . . 
+        . f f e f f e e e f e e e f f . 
+        . f f e e e e e e e e e e f f . 
+        . . . f e e e e e e e e f . . . 
+        . . . e f f f f f f f f 4 e . . 
+        . . . 4 f 2 2 2 2 2 e d d 4 . . 
+        . . . e f f f f f f e e 4 . . . 
+        . . . . f f f . . . . . . . . . 
+        `,img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . f f f f f 2 2 f f f f f . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e 2 f 2 f f 2 f 2 e f . . 
+        . . f f f 2 2 e e 2 2 f f f . . 
+        . f f e f 2 f e e f 2 f e f f . 
+        . f e e f f e e e e f e e e f . 
+        . . f e e e e e e e e e e f . . 
+        . . . f e e e e e e e e f . . . 
+        . . e 4 f f f f f f f f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 4 4 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . . f f f f 2 2 f f f f . . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e f 2 f f f 2 f 2 e f . . 
+        . . f f f 2 2 e e f 2 f f f . . 
+        . . f e e f 2 e e f f 2 e f . . 
+        . f f e e e f e e e f f e f f . 
+        . f f e e e e e e e e e e f f . 
+        . . . f e e e e e e e e f . . . 
+        . . e 4 f f f f f f f f e . . . 
+        . . 4 d d e 2 2 2 2 2 f 4 . . . 
+        . . . 4 e e f f f f f f e . . . 
+        . . . . . . . . . f f f . . . . 
+        `],
+    100,
+    true
+    )
+})
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    CColumbos,
+    [img`
+        ..............ffffff....
+        .............f2feeeeff..
+        ......eedd..f222feeeeff.
+        ......eeddd.feeeeffeeef.
+        .....ddeeddfe2222eeffff.
+        ....dddeee.f2effff222ef.
+        ....dddddee.ffeeefffffff
+        ....ddddddee.e44fbe44eff
+        ......dddd.eeeddf14d4eef
+        .............deddd4eeef.
+        ...........edd4e44eeff..
+        ............ee442222f...
+        .............f2e2222f...
+        .............f554444f...
+        ..............ffffff....
+        ................fff.....
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ........................
+        ..............fff.......
+        .............f2fffff....
+        ...........ff22eeeeeff..
+        ..........ff222eeeeeeff.
+        ..........feeeefffeeeef.
+        .........fe2222eeefffff.
+        ...dddd..f2efffff222efff
+        .eedddd..fffeeefffffffff
+        .ddedddd.fee44fbbe44efef
+        .dddeedd..feddfbb4d4eef.
+        .dddddeeceefddddd4eeef..
+        .dddddceeddee2222222f...
+        ......ccedd44e544444f...
+        .........eeeeffffffff...
+        .............ff...fff...
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ...............ff.......
+        .............ff2ffff....
+        ............ff2feeeeff..
+        ...........ff22feeeeeff.
+        ...........feeeeffeeeef.
+        ..........fe2222eefffff.
+        ..........f2effff222efff
+        ..........fffeeeffffffff
+        ..........fee44fbe44efef
+        ...........feddfb4d4eef.
+        .....dd...c.eeddd4eeef..
+        ..dddcdcccceddee2222f...
+        ..eeeeeeeeeedd44e444f...
+        .dddeeeeeee.eeeefffff...
+        .dddddd...c...ffffffff..
+        ..dddd.........ff..fff..
+        ...dd...................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ..............ffffff....
+        .............f2feeeeff..
+        ............f222feeeeff.
+        ............feeeeffeeef.
+        ...........fe2222eeffff.
+        ...........f2effff222ef.
+        ...........fffeeefffffff
+        ...........fee44fbe44eff
+        ............feddf14d4eef
+        .............fdddd4eeef.
+        .............fe444eddf..
+        .............ccc22eddf..
+        .............cec22fee...
+        ..........ddceec4444f...
+        ..........ddeecfffff....
+        .........ddeed..fff.....
+        ........dddeddd.........
+        .........eedddd.........
+        ........eedddd..........
+        ........dddddd..........
+        ........dddddd..........
+        ........................
+        ........................
+        ........................
+        `],
+    100,
+    false
+    )
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    CColumbos,
+    [img`
+        ........................
+        ....ffffff..............
+        ..ffeeeef2f.............
+        .ffeeeef222f............
+        .feeeffeeeef.ddce.......
+        .ffffee2222efddeeddd....
+        .fe222ffffe2fdeedddd....
+        fffffffeeeffceeedddd....
+        ffe44ebf44ecdeeddddd....
+        fee4d41fddecee.dddd.....
+        .feee4dddedcec.ddd......
+        ..ffee44e4dde...........
+        ...f222244ee............
+        ...f2222e2f.............
+        ...f444455f.............
+        ....ffffff..............
+        .....fff................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ........................
+        .......fff..............
+        ....fffff2f.............
+        ..ffeeeee22ff...........
+        .ffeeeeee222ff..........
+        .feeeefffeeeef..........
+        .fffffeee2222ef.........
+        fffe222fffffe2f..dd.....
+        fffffffffeeefff..dddee..
+        fefe44ebbf44eef..ddeee..
+        .fee4d4bbfddef..cdeedddd
+        ..feee4dddddfeeeeeeddddd
+        ...f2222222eeddeeedddddd
+        ...f444445e44ddeecddddd.
+        ...ffffffffeeee...dd....
+        ...fff...ff.............
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        .......ff...............
+        ....ffff2ff.............
+        ..ffeeeef2ff............
+        .ffeeeeef22ff...........
+        .feeeeffeeeef...........
+        .fffffee2222ef..........
+        fffe222ffffe2f..........
+        ffffffffeeefff..........
+        fefe44ebf44eef..........
+        .fee4d4bfddef.....d.....
+        ..feee4dddee.c...ddd....
+        ...f2222eeddecdddddd....
+        ...f444e44ddeeeeeeedd...
+        ...fffffeeee.ccdddddd...
+        ..ffffffff...c.dddddd...
+        ..fff..ff........ddd....
+        .................d......
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `,img`
+        ....ffffff..............
+        ..ffeeeef2f.............
+        .ffeeeef222f............
+        .feeeffeeeef............
+        .ffffee2222ef...........
+        .fe222ffffe2f...........
+        fffffffeeefff...........
+        ffe44ebf44eef...........
+        fee4d41fddef............
+        .feee4ddddf.............
+        ..fdde444ef.............
+        ..fdde22ccc.............
+        ...eef22cee.............
+        ...f4444ceec............
+        ....fffffceedd..........
+        .....fff..deedd.........
+        .........dddeed.........
+        .........ddddee.........
+        ..........dddde.........
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `],
+    100,
+    false
+    )
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    CColumbos,
+    [img`
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d d 4 e e e f . . . 
+        . . . f e 4 4 4 e e f f . . . . 
+        . . . f 2 2 2 e d d 4 . . . . . 
+        . . . f 2 2 2 e d d e . . . . . 
+        . . . f 5 5 4 f e e f . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . . . . f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d e e e e e f . . . 
+        . . . f e 4 e d d 4 f . . . . . 
+        . . . f 2 2 e d d e f . . . . . 
+        . . f f 5 5 f e e f f f . . . . 
+        . . f f f f f f f f f f . . . . 
+        . . . f f f . . . f f . . . . . 
+        `,img`
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d d 4 e e e f . . . 
+        . . . f e 4 4 4 e e f f . . . . 
+        . . . f 2 2 2 e d d 4 . . . . . 
+        . . . f 2 2 2 e d d e . . . . . 
+        . . . f 5 5 4 f e e f . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . . . . f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d d 4 e e e f . . . 
+        . . . f e 4 4 4 e d d 4 . . . . 
+        . . . f 2 2 2 2 e d d e . . . . 
+        . . f f 5 5 4 4 f e e f . . . . 
+        . . f f f f f f f f f f . . . . 
+        . . . f f f . . . f f . . . . . 
+        `],
+    100,
+    true
+    )
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    CColumbos,
+    [img`
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e 4 d d d d f . . . 
+        . . . . f f e e 4 4 4 e f . . . 
+        . . . . . 4 d d e 2 2 2 f . . . 
+        . . . . . e d d e 2 2 2 f . . . 
+        . . . . . f e e f 4 5 5 f . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . . . . f f f . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e e e d d d f . . . 
+        . . . . . f 4 d d e 4 e f . . . 
+        . . . . . f e d d e 2 2 f . . . 
+        . . . . f f f e e f 5 5 f f . . 
+        . . . . f f f f f f f f f f . . 
+        . . . . . f f . . . f f f . . . 
+        `,img`
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e 4 d d d d f . . . 
+        . . . . f f e e 4 4 4 e f . . . 
+        . . . . . 4 d d e 2 2 2 f . . . 
+        . . . . . e d d e 2 2 2 f . . . 
+        . . . . . f e e f 4 5 5 f . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . . . . f f f . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e 4 d d d d f . . . 
+        . . . . 4 d d e 4 4 4 e f . . . 
+        . . . . e d d e 2 2 2 2 f . . . 
+        . . . . f e e f 4 4 5 5 f f . . 
+        . . . . f f f f f f f f f f . . 
+        . . . . . f f . . . f f f . . . 
+        `],
+    100,
+    true
+    )
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    CColumbos,
+    [img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . f f e 2 f f f f f f 2 e f f . 
+        . f f f f f e e e e f f f f f . 
+        . . f e f b f 4 4 f b f e f . . 
+        . . f e 4 1 f d d f 1 4 e f . . 
+        . . . f e 4 d d d d 4 e f e . . 
+        . . f e f 2 2 2 2 e d d 4 e . . 
+        . . e 4 f 2 2 2 2 e d d e . . . 
+        . . . . f 4 4 5 5 f e e . . . . 
+        . . . . f f f f f f f . . . . . 
+        . . . . f f f . . . . . . . . . 
+        `,img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f e e 2 2 2 2 2 2 e f f . . 
+        . f f e 2 f f f f f f 2 e f f . 
+        . f f f f f e e e e f f f f f . 
+        . . f e f b f 4 4 f b f e f . . 
+        . . f e 4 1 f d d f 1 4 e f . . 
+        . . e f e 4 d d d d 4 e f . . . 
+        . . e 4 d d e 2 2 2 2 f e f . . 
+        . . . e d d e 2 2 2 2 f 4 e . . 
+        . . . . e e f 5 5 4 4 f . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . . . . . . . f f f . . . . 
+        `],
+    100,
+    true
+    )
 })
 let tree: Sprite = null
 let CColumbos: Sprite = null
@@ -42,50 +548,22 @@ CColumbos = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-let chest = sprites.create(img`
-    . . b b b b b b b b b b b b . . 
-    . b e 4 4 4 4 4 4 4 4 4 4 e b . 
-    b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-    b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-    b e 4 4 4 4 4 4 4 4 4 4 4 4 e b 
-    b e e 4 4 4 4 4 4 4 4 4 4 e e b 
-    b e e e e e e e e e e e e e e b 
-    b e e e e e e e e e e e e e e b 
-    b b b b b b b d d b b b b b b b 
-    c b b b b b b 5 5 b b b b b b c 
-    c c c c c c b 5 5 b c c c c c c 
-    b e e e e e c b b c e e e e e b 
-    b e e e e e e e e e e e e e e b 
-    b c e e e e e e e e e e e e c b 
-    b b b b b b b b b b b b b b b b 
-    . b b . . . . . . . . . . b b . 
-    `, SpriteKind.chest)
 scene.cameraFollowSprite(CColumbos)
-tiles.placeOnRandomTile(chest, sprites.castle.tileGrass3)
-CColumbos.setPosition(65, 100)
 controller.moveSprite(CColumbos)
+CColumbos.setPosition(65, 100)
 CColumbos.setBounceOnWall(true)
-music.play(music.createSong(hex`0078000408020601001c000f05001202c102c20100040500280000006400280003140006020004240000000400012708000c00012010001400012a18001c00012430003400012a34003800012203001c0001dc00690000045e0100040000000000000000000005640001040003270004000800011b0c001000011b14001800011b1c002000021b272000240002252a24002800021b1e06001c00010a006400f4016400000400000000000000000000000000000000021e0000000400012c08000c00012c18001c00012c30003400012c38003c00012c07001c00020a006400f4016400000400000000000000000000000000000000032a000400080001201000140001241400180001201c002000012030003400012038003c0001243c004000012008001c000e050046006603320000040a002d00000064001400013200020100022d0008000c00012410001400012718001c00012024002800042025292a2c003000012a30003400012438003c00012709010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800310000000100010208000900010210001100010218001900010220002100010228002900010230003100020203380039000102`), music.PlaybackMode.LoopingInBackground)
-CColumbos.sayText("Hi Nice to Meet You", 2000, false)
-pause(3000)
-CColumbos.sayText("I'm Christopher Columbus", 5000, false)
-pause(3000)
-CColumbos.sayText("Chop 5 trees to move on ", 2000, false)
-pause(3000)
-CColumbos.sayText("Open a chest to find an axe to cut the trees down", 5000, false)
-info.setScore(0)
-for (let index = 0; index < 5; index++) {
+for (let index = 0; index < 6; index++) {
     tree = sprites.create(img`
-        ................86..................
-        ...........6688867886...............
-        ...........8666877688868............
-        ............868777767768............
-        .........688667777776688............
-        ........67767777777778666...........
-        .........6776667767666868...........
-        ..........866667667677688...........
-        .........8666666666667778...........
-        ........667766666666666676..........
+        ....................................
+        .................7..................
+        ................77..................
+        ...............7777.................
+        ..............777777................
+        ...........6777777777...............
+        ...........76667767666..............
+        ..........866667667677..............
+        .........86666666666677.............
+        ........66776666666666667...........
         .......67766667666776667776.........
         ......886667776676777666688.........
         .....67766777667767777666768........
@@ -117,6 +595,18 @@ for (let index = 0; index < 5; index++) {
         ...............feefce...............
         ...............fceeec...............
         ...............ffceec...............
-        `, SpriteKind.Player)
-    tiles.placeOnRandomTile(tree, sprites.castle.tileGrass2)
+        `, SpriteKind.tree)
+    tiles.placeOnRandomTile(tree, sprites.castle.tileGrass1)
+}
+music.play(music.createSong(hex`0078000408010400001c00010a006400f4016400000400000000000000000000000000050000041a000000040001240400080002292c08000c00012010001400021d2006001c00010a006400f401640000040000000000000000000000000000000002130010001400011d14001800011d1c002000021b2407001c00020a006400f401640000040000000000000000000000000000000003180000000400012004000800012010001400012418001c00012408001c000e050046006603320000040a002d0000006400140001320002010002250008000c00021b270c001000012010001400012914001800011d18001c00011e1c0020000127`), music.PlaybackMode.LoopingInBackground)
+CColumbos.sayText("Hi Nice to Meet You", 2000, false)
+pause(3000)
+CColumbos.sayText("I'm Christopher Columbus", 5000, false)
+pause(3000)
+CColumbos.sayText("Chop 5 trees to move on ", 2000, false)
+pause(3000)
+CColumbos.sayText("Press the A-Right or B-Left to move your axe", 5000, false)
+info.setScore(0)
+if (CColumbos.overlapsWith(tree)) {
+	
 }
