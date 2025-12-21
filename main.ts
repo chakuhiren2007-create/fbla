@@ -131,6 +131,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             `, SpriteKind.tree)
         tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass3)
     }
+    if (info.score() == 5) {
+        sprites.destroyAllSpritesOfKind(SpriteKind.tree)
+        tiles.setCurrentTilemap(tilemap`level2`)
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -385,7 +389,7 @@ scene.cameraFollowSprite(CColumbos)
 controller.moveSprite(CColumbos)
 CColumbos.setPosition(65, 100)
 CColumbos.setBounceOnWall(true)
-for (let index = 0; index < 10; index++) {
+for (let index = 0; index < 7; index++) {
     hfhrfth = sprites.create(img`
         ........................
         ........................
@@ -434,6 +438,6 @@ CColumbos.sayText("Hi Nice to Meet You", 2000, false)
 pause(3000)
 CColumbos.sayText("I'm Christopher Columbus", 5000, false)
 pause(3000)
-CColumbos.sayText("Collect pieces of wood", 2000, false)
+CColumbos.sayText("Collect 5 pieces of wood")
 pause(3000)
 info.setScore(0)
