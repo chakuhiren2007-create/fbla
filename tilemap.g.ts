@@ -29,7 +29,7 @@ namespace myTiles {
 2 . 2 2 2 2 . . . . . . . . 2 2 
 2 . 2 2 2 2 . 2 . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, [myTiles.transparency16,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tileGrass1,sprites.builtin.forestTiles0,sprites.swamp.swampTile2,sprites.dungeon.floorLight1,myTiles.tile2,myTiles.tile3], TileScale.Sixteen);
+`, [myTiles.transparency16,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tileGrass1,sprites.builtin.forestTiles0,sprites.swamp.swampTile2,sprites.dungeon.floorLight1,myTiles.tile2,sprites.dungeon.hazardWater], TileScale.Sixteen);
         }
         return null;
     })

@@ -527,7 +527,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
-let tree: Sprite = null
+let tree2: Sprite = null
 let CColumbos: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 CColumbos = sprites.create(img`
@@ -553,7 +553,7 @@ controller.moveSprite(CColumbos)
 CColumbos.setPosition(65, 100)
 CColumbos.setBounceOnWall(true)
 for (let index = 0; index < 6; index++) {
-    tree = sprites.create(img`
+    tree2 = sprites.create(img`
         ....................................
         .................7..................
         ................77..................
@@ -596,7 +596,7 @@ for (let index = 0; index < 6; index++) {
         ...............fceeec...............
         ...............ffceec...............
         `, SpriteKind.tree)
-    tiles.placeOnRandomTile(tree, sprites.castle.tileGrass1)
+    tiles.placeOnRandomTile(tree2, sprites.castle.tileGrass1)
 }
 music.play(music.createSong(hex`0078000408010400001c00010a006400f4016400000400000000000000000000000000050000041a000000040001240400080002292c08000c00012010001400021d2006001c00010a006400f401640000040000000000000000000000000000000002130010001400011d14001800011d1c002000021b2407001c00020a006400f401640000040000000000000000000000000000000003180000000400012004000800012010001400012418001c00012408001c000e050046006603320000040a002d0000006400140001320002010002250008000c00021b270c001000012010001400012914001800011d18001c00011e1c0020000127`), music.PlaybackMode.LoopingInBackground)
 CColumbos.sayText("Hi Nice to Meet You", 2000, false)
@@ -607,6 +607,6 @@ CColumbos.sayText("Chop 5 trees to move on ", 2000, false)
 pause(3000)
 CColumbos.sayText("Press the A-Right or B-Left to move your axe", 5000, false)
 info.setScore(0)
-if (CColumbos.overlapsWith(tree)) {
+if (CColumbos.overlapsWith(tree2)) {
 	
 }
