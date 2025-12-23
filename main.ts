@@ -115,7 +115,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             `, SpriteKind.tree)
         tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass3)
     }
-    if (info.score() == 5) {
+    if (info.score() >= 5) {
         sprites.destroyAllSpritesOfKind(SpriteKind.tree)
         info.setScore(5)
         tiles.setCurrentTilemap(tilemap`level6`)
