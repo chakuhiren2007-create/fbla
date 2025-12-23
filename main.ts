@@ -156,7 +156,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             ..........1111.11dd................
             ..........1111.1111................
             `, SpriteKind.Player)
-        tiles.placeOnTile(King, tiles.getTileLocation(4, 17))
+        tiles.placeOnTile(King, tiles.getTileLocation(3, 17))
         Queen = sprites.create(img`
             . . . . . . 5 . 5 . . . . . . . 
             . . . . . f 5 5 5 f f . . . . . 
@@ -176,10 +176,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
         tiles.placeOnTile(Queen, tiles.getTileLocation(8, 17))
+        Queen.sayText("I am queen Isabella of Spain. I ruled from 1479 to 1504. We give you money for you expedition ", 35000, false)
+        King.sayText("I am king Ferdinand of Spain. I ruled from 1479 to 1516. We will give you money for your expedition  ", 35000, false)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
-        Queen.sayText("I am queen Isabella of Spain. I ruled from 1479 to 1504. ", 35000, false)
-        King.sayText("I am king Ferdinand of Spain. I ruled from 1479 to 1516. ", 35000, false)
+        pause(40000)
+        info.changeScoreBy(2000000)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
