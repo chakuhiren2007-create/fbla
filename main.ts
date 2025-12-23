@@ -134,6 +134,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
     if (info.score() == 5) {
         sprites.destroyAllSpritesOfKind(SpriteKind.tree)
         tiles.setCurrentTilemap(tilemap`level6`)
+        info.setScore(5)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
