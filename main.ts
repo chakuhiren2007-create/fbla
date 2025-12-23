@@ -160,22 +160,24 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         Queen = sprites.create(img`
             . . . . . . 5 . 5 . . . . . . . 
             . . . . . f 5 5 5 f f . . . . . 
-            . . . . f 1 5 2 5 1 6 f . . . . 
-            . . . f 1 6 6 6 6 6 1 6 f . . . 
-            . . . f 6 6 f f f f 6 1 f . . . 
-            . . . f 6 f f d d f f 6 f . . . 
-            . . f 6 f d f d d f d f 6 f . . 
-            . . f 6 f d 3 d d 3 d f 6 f . . 
-            . . f 6 6 f d d d d f 6 6 f . . 
-            . f 6 6 f 3 f f f f 3 f 6 6 f . 
-            . . f f d 3 5 3 3 5 3 d f f . . 
-            . . f d d f 3 5 5 3 f d d f . . 
-            . . . f f 3 3 3 3 3 3 f f . . . 
-            . . . f 3 3 5 3 3 5 3 3 f . . . 
+            . . . . 5 5 5 2 5 5 5 5 . . . . 
+            . . . f e e e e e e e e f . . . 
+            . . . f e e f f f e e e f . . . 
+            . . . e e f f d d f e e f . . . 
+            . . f e f d f d d f d e e f . . 
+            . . f e f d 3 d d 3 d f e f . . 
+            . . f e e f d d d d f e e f . . 
+            . f e e f e f f f f e f e e f . 
+            . . f f e e e e e e e e f f . . 
+            . . f e e e e e e e f e e f . . 
+            . . . f f e e e e e e f f . . . 
+            . . . f e e e e e e e e f . . . 
             . . . f f f f f f f f f f . . . 
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
         tiles.placeOnTile(Queen, tiles.getTileLocation(4, 15))
+        scaling.scaleByPercent(Queen, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+        scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
