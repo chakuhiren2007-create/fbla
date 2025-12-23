@@ -176,12 +176,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
         tiles.placeOnTile(Queen, tiles.getTileLocation(8, 17))
-        Queen.sayText("I am queen Isabella of Spain. I ruled from 1479 to 1504. We give you money for you expedition ", 35000, false)
-        King.sayText("I am king Ferdinand of Spain. I ruled from 1479 to 1516. We will give you money for your expedition  ", 35000, false)
+        Queen.sayText("I am queen Isabella of Spain. I ruled from 1479 to 1504. We give you money for you expedition ", 25000, false)
+        King.sayText("I am king Ferdinand of Spain. I ruled from 1479 to 1516. We will give you money for your expedition  ", 25000, false)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
-        pause(40000)
-        info.changeScoreBy(2000000)
+        pause(15000)
+        info.changeScoreBy(1999995)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
