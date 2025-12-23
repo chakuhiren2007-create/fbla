@@ -352,7 +352,7 @@ let hfhrfth: Sprite = null
 let CColumbos: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
 info.setScore(0)
-music.play(music.createSong(hex`0064000408020106001c00010a006400f4016400000400000000000000000000000000000000023b0000000400012504000800012408000c0002202510001400011d1c0020000322252920002400012524002800012528002c00031e24253c004000011e`), music.PlaybackMode.LoopingInBackground)
+music.play(music.createSong(hex`0064000408020106001c00010a006400f4016400000400000000000000000000000000000000023b0000000400012504000800012408000c0002202510001400011d1c0020000322252920002400012524002800012528002c00031e24253c004000011e`), music.PlaybackMode.UntilDone)
 CColumbos = sprites.create(img`
     . . . . . . . f f f . . . . . . 
     . . . . f f f f f f f f f . . . 
@@ -410,5 +410,3 @@ CColumbos.sayText("I'm Christopher Columbus", 5000, false)
 pause(3000)
 CColumbos.sayText("Collect 5 pieces of wood")
 pause(3000)
-CColumbos.sayText("Then follow the gravel path to the castle")
-pause(5000)
