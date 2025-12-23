@@ -122,38 +122,38 @@ namespace myTiles {
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `, [myTiles.transparency16,sprites.castle.tileGrass2,sprites.castle.tileGrass3,sprites.castle.tileGrass1,sprites.builtin.forestTiles0,sprites.swamp.swampTile2,sprites.dungeon.floorLight1,sprites.dungeon.hazardWater,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile12,myTiles.tile13,sprites.castle.tilePath5], TileScale.Sixteen);
             case "level6":
-            case "level6":return tiles.createTilemap(hex`1e001e000a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0d0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0c0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b120b0b0b110b0b0b0b120b0b0b0c0c0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0c0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0d0d0d0d0d0d0d0d0d0d0d0d0a0a0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0d0d0d0d0d0d0d0a0a0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0d0d0d0d0d0d0a0a0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b10101010100b0c0c0f0f0f0f0f0f0d0d0d0d0d0a0a0b060909010b0b0b0b0b0b10110b100c0c0c0f0f0f0f0f0d0d0d0d0d0a0a0b030505040b0b0b0b0b0b0b1010100c0c0d0f0f0f0f0f0d0d0d0d0d0a0a0b070202080b110b0b0b0b0b0b0b0b0c0c0d0d0d0f0f0f0d0d0d0d0d0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0c0c0c0c0d0d0f0f0f0f0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0d0d0f0f0f0f0d0d0d0d0a0a0e0e0e0e0e0e13131313131b0e0d0d0d0d0d0d0f0f0f0f0f0d0d0d0d0a0a0e0e0e0e0e0e1414141418170e0d0d0d0d0d0d0f0f0f0f0f0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e16170e0d0d0d0d0d0f0d0f0f0f0f0d0d0d0d0a0a0e1a131313131313131318170e0d0d0d0d0d0d0d0f0f0f0f0d0d0d0d0a0a0e16181414141414141414190e0d0d0d0d0d0f0f0f0f0f0d0d0d0d0d0a0a0e16170e0e0e0e0e0e0e0e0e0e0d0d0c0d0d0f0f0f0f0f0c0d0d0d0d0a0a0e1618131313131313131313130f0f0f0f0f0f0f0f0f0f0c0d0d0d0d0a0a0e1514141414141414141414140f0f0f0f0f0f0f0d0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0d0d0d0c0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0c0d0d0d0d0d0d0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0c0d0d0d0d0d0d0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0c0d0d0d0d0d0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0d0d0d0d0d0c0d0d0d0d0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a`, img`
+            case "level6":return tiles.createTilemap(hex`1e001e000a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0d0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0c0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b110b0b0b100b0b0b0b110b0b0b0c0c0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0c0d0d0d0d0d0d0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0c0d0d0d0d0d0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0d0a0a0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0d0d0d0d0d0a0a0b0b0b0b0b0b0b0b0b0f0f0f0f0f0b0c0c0e0e0e0e0e0e0d0d0d0d0d0a0a0b060909010b0b0b0b0b0b0f100b0f0c0c0c0e0e0e0e0e0d0d0d0d0d0a0a0b030505040b0b0b0b0b0b0b0f0f0f0c0c0d0e0e0e0e0e0d0d0d0d0d0a0a0b070202080b100b0b0b0b0b0b0b0b0c0c0d0d0d0e0e0e0d0d0d0d0d0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0c0c0c0c0d0d0e0e0e0e0d0d0d0d0d0a0a1c22222222222222222222221d0d0d0d0d0d0d0d0e0e0e0e0d0d0d0d0a0a231b1b1b1b1b12121212121a210d0d0d0d0d0d0e0e0e0e0e0d0d0d0d0a0a231b1b1b1b1b131313131716210d0d0d0d0d0d0e0e0e0e0e0d0d0d0d0a0a231b1b1b1b1b1b1b1b1b1516210d0d0d0d0d0e0d0e0e0e0e0d0d0d0d0a0a231912121212121212121716210d0d0d0d0d0d0d0e0e0e0e0d0d0d0d0a0a231517131313131313131318210d0d0d0d0d0e0e0e0e0e0d0d0d0d0d0a0a2315161b1b1b1b1b1b1b1b1b210d0d0c0d0d0e0e0e0e0e0c0d0d0d0d0a0a231517121212121212121212120e0e0e0e0e0e0e0e0e0e0c0d0d0d0d0a0a231413131313131313131313130e0e0e0e0e0e0e0d0d0d0d0d0d0d0d0a0a231b1b1b1b1b1b1b1b1b1b1b210d0d0d0d0d0d0d0d0c0d0d0d0d0d0d0a0a231b1b1b1b1b1b1b1b1b1b1b210d0c0d0d0d0d0d0d0d0d0d0d0d0d0d0a0a231b1b1b1b1b1b1b1b1b1b1b210d0c0d0d0d0d0d0d0d0d0d0d0d0d0d0a0a231b1b1b1b1b1b1b1b1b1b1b210d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0a0a231b1b1b1b1b1b1b1b1b1b1b210d0d0c0d0d0d0d0d0d0d0d0d0d0d0d0a0a1e20202020202020202020201f0d0d0d0d0d0d0d0d0d0d0c0d0d0d0d0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a0a`, img`
 222222222222222222222222222222
-2............................2
-2............................2
-2..2...2....2................2
-2............................2
-2............................2
-2............................2
-2............................2
-2............................2
-2............................2
-2.2222.......2...............2
-2.2222.......................2
-2.2222.2.....................2
-22222222222222...............2
-2......2222222...............2
-2............2...............2
-2............2...............2
-22222222222..2...............2
-22...........2...............2
-22...........2...............2
-22..2222222222...............2
-22...........................2
-22...........................2
-22222222222222...............2
+2...............2............2
+2...............2............2
+2..2...2....2...2............2
+2...............2............2
+2...............222222.......2
+2.....................2......2
+2......................2.....2
+2.......................2....2
+2...............22......2....2
+2.2222.......2..2.2.....2....2
+2.2222..........2.2.....2....2
+2.2222.2........2..22...2....2
+22222222222222222..2....2....2
+2......2222222......2....2...2
+2............2.....2.....2...2
+2............2.....2.....2...2
+22222222222..2....2......2...2
+22...........2.....2.....2...2
+22...........2.22.2.....2....2
+22..222222222222222.....2....2
+22......................2....2
+22...................222.....2
+222222222222222222222........2
 2............2...............2
 2............2...............2
 2............2...............2
 2............2...............2
 2............2...............2
 222222222222222222222222222222
-`, [myTiles.transparency16,myTiles.tile11,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile12,myTiles.tile13,myTiles.tile1,sprites.dungeon.floorLight1,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass2,sprites.castle.tileDarkGrass1,sprites.dungeon.floorDarkDiamond,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.builtin.forestTiles0,sprites.swamp.swampTile0,myTiles.tile3,myTiles.tile14,myTiles.tile16,myTiles.tile18,myTiles.tile19,myTiles.tile20,myTiles.tile21,myTiles.tile17,myTiles.tile22], TileScale.Sixteen);
+`, [myTiles.transparency16,myTiles.tile11,myTiles.tile4,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile12,myTiles.tile13,myTiles.tile1,sprites.dungeon.floorLight1,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass2,sprites.castle.tileDarkGrass1,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.builtin.forestTiles0,sprites.swamp.swampTile0,myTiles.tile3,myTiles.tile14,myTiles.tile16,myTiles.tile18,myTiles.tile19,myTiles.tile20,myTiles.tile21,myTiles.tile17,myTiles.tile22,sprites.dungeon.darkGroundCenter,sprites.dungeon.darkGroundNorthWest0,sprites.dungeon.darkGroundNorthEast0,sprites.dungeon.darkGroundSouthWest0,sprites.dungeon.darkGroundSouthEast0,sprites.dungeon.darkGroundSouth,sprites.dungeon.darkGroundEast,sprites.dungeon.darkGroundNorth,sprites.dungeon.darkGroundWest], TileScale.Sixteen);
         }
         return null;
     })

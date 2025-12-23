@@ -117,6 +117,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
     }
     if (info.score() == 5) {
         sprites.destroyAllSpritesOfKind(SpriteKind.tree)
+        info.setScore(5)
         tiles.setCurrentTilemap(tilemap`level6`)
         King = sprites.create(img`
             ........ffffffffff.................
@@ -156,6 +157,25 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             ..........1111.1111................
             `, SpriteKind.Player)
         tiles.placeOnTile(King, tiles.getTileLocation(2, 15))
+        Queen = sprites.create(img`
+            . . . . . . 5 . 5 . . . . . . . 
+            . . . . . f 5 5 5 f f . . . . . 
+            . . . . f 1 5 2 5 1 6 f . . . . 
+            . . . f 1 6 6 6 6 6 1 6 f . . . 
+            . . . f 6 6 f f f f 6 1 f . . . 
+            . . . f 6 f f d d f f 6 f . . . 
+            . . f 6 f d f d d f d f 6 f . . 
+            . . f 6 f d 3 d d 3 d f 6 f . . 
+            . . f 6 6 f d d d d f 6 6 f . . 
+            . f 6 6 f 3 f f f f 3 f 6 6 f . 
+            . . f f d 3 5 3 3 5 3 d f f . . 
+            . . f d d f 3 5 5 3 f d d f . . 
+            . . . f f 3 3 3 3 3 3 f f . . . 
+            . . . f 3 3 5 3 3 5 3 3 f . . . 
+            . . . f f f f f f f f f f . . . 
+            . . . . . f f . . f f . . . . . 
+            `, SpriteKind.Player)
+        tiles.placeOnTile(Queen, tiles.getTileLocation(4, 15))
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -386,6 +406,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+let Queen: Sprite = null
 let King: Sprite = null
 let hfhrfth: Sprite = null
 let CColumbos: Sprite = null
