@@ -6,6 +6,7 @@ enum ActionKind {
 namespace SpriteKind {
     export const chest = SpriteKind.create()
     export const tree = SpriteKind.create()
+    export const Boat = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -182,6 +183,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
         pause(15000)
         info.changeScoreBy(1999995)
+        CColumbos.sayText("Now let's go make a boat!", 5000, false)
+        tiles.setCurrentTilemap(tilemap`level3`)
+        animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
+        Thissavedmylifebro = sprites.create(img`
+            9 
+            `, SpriteKind.Player)
+        tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
+        CColumbos.setImage(assets.image`boat`)
+        tiles.placeOnTile(CColumbos, tiles.getTileLocation(87, 10))
+        controller.moveSprite(CColumbos, 100, 0)
+        Queen.setFlag(SpriteFlag.Invisible, true)
+        King.setFlag(SpriteFlag.Invisible, true)
+        CColumbos.follow(Thissavedmylifebro)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -412,6 +426,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+let Thissavedmylifebro: Sprite = null
 let Queen: Sprite = null
 let King: Sprite = null
 let hfhrfth: Sprite = null
