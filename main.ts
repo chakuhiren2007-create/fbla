@@ -9,6 +9,11 @@ namespace SpriteKind {
     export const Boat = SpriteKind.create()
     export const W = SpriteKind.create()
     export const randomtree = SpriteKind.create()
+    export const lostdude = SpriteKind.create()
+    export const helpfulcolumbus = SpriteKind.create()
+    export const Spritesfromcuba = SpriteKind.create()
+    export const notlostdude = SpriteKind.create()
+    export const idkwhat2put4name = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -179,12 +184,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
         tiles.placeOnTile(Queen, tiles.getTileLocation(8, 17))
-        Queen.sayText("I am queen Isabella of Spain. I ruled from 1479 to 1504. We give you money for you expedition ", 35000, false)
-        King.sayText("I am king Ferdinand of Spain. I ruled from 1479 to 1516. We will give you money for your expedition  ", 35000, false)
+        Queen.sayText("I am queen Isabella of Spain. I ruled from 1479 to 1504. We give you money for you to make your boat.", 35000, false)
+        King.sayText("I am king Ferdinand of Spain. I ruled from 1479 to 1516. We will give you money for you to make your boat.", 35000, false)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
         pause(15000)
         info.changeScoreBy(1999995)
+        pause(1000)
         tiles.setCurrentTilemap(tilemap`level3`)
         info.setScore(0)
         animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
@@ -289,7 +295,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
         . . . 6 6 6 6 6 6 6 6 . . . 
         . . . . e e . . e e . . . . 
         . . . . e e . . e e . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.Spritesfromcuba)
     tiles.placeOnTile(people, tiles.getTileLocation(3, 13))
     people2 = sprites.create(img`
         . . . . . . . . . . . . . 2 . . 
@@ -300,23 +306,55 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
         . f f f f f f f f f f f f f f . 
         . f e e e e e e e e e e e e f . 
         . f e e f b f e e f b f e e f . 
-        . . e e e 1 f e e f 1 e e e . . 
+        . f e e e 1 f e e f 1 e e e f . 
         . . f e e e e e e e e e e f . . 
         . . . f e e e e e e e e f . . . 
         . . e e f 2 2 2 2 2 2 f e e . . 
         . . e e f 2 2 2 2 2 2 f e e . . 
         . . e e f 2 2 2 2 2 2 f e e . . 
-        . . . . . 7 7 7 7 7 7 . . . . . 
-        . . . . . 7 7 . . 7 7 . . . . . 
+        . . . . . 1 1 1 1 1 1 . . . . . 
+        . . . . . 1 1 . . 1 1 . . . . . 
         . . . . . e e . . e e . . . . . 
         . . . . . e e . . e e . . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.Spritesfromcuba)
     tiles.placeOnTile(people2, tiles.getTileLocation(4, 13))
-    people2.sayText("Hello! We are the Indigenous Taíno people")
+    people2.sayText("Hello! We are the Indigenous Taíno people", 5000, false)
     pause(5000)
-    CColumbos.sayText("Hi! I'm Christopher columbus!")
+    CColumbos.sayText("Hi! I'm Christopher columbus!", 5000, false)
     pause(5000)
-    CColumbos.sayText("Nice to meet you!")
+    CColumbos.sayText("Nice to meet you!", 2000, false)
+    pause(5000)
+    CColumbos.sayText("Cuba is pretty cool.", 2000, false)
+    pause(5000)
+    CColumbos.sayText("I'm going to search for gold!", 2000, false)
+    pause(2000)
+    people2.sayText("WAIT", 2000, false)
+    pause(2000)
+    people2.sayText("We are missing one of our people.", 5000, false)
+    pause(5000)
+    people2.sayText("We will give you gold if you can find him. Deal?", 5000, false)
+    pause(5000)
+    CColumbos.sayText("Deal.", 5000, false)
+    tileUtil.setWalls(sprites.castle.tileGrass1, false)
+    lostdude = sprites.create(img`
+        . . . . f f f f . . . . 
+        f . f f f f f f f f . . 
+        . 2 f f f f f f f f f . 
+        f f 2 f f f f f f f f f 
+        f f f 1 f f f f f f f f 
+        f f f f f f f f f f f f 
+        f e e e e e e e e e e f 
+        f e e f f e e f f e 2 f 
+        f e e f f e e f f 2 e f 
+        . f e e e e e e 2 e f . 
+        . f f e e e e e e f f . 
+        e e f 1 1 1 1 1 1 f e e 
+        e e f 1 1 1 1 1 1 f e e 
+        e e f 6 6 6 6 6 6 f e e 
+        . . . c c c c c c . . . 
+        . . . c c . . c c . . . 
+        `, SpriteKind.lostdude)
+    tiles.placeOnRandomTile(lostdude, sprites.castle.tileGrass3)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -394,6 +432,21 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (sprite, otherSprite) {
+    lostdude.setKind(SpriteKind.notlostdude)
+    lostdude.follow(people2, 100)
+    people.sayText("Thank you so much!")
+    pause(3000)
+    people.sayText("Here's your reward.")
+    pause(2000)
+    music.stopAllSounds()
+    music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
+    info.setScore(10)
+    CColumbos.sayText("Let's explore a bit more.")
+    pause(2000)
+    CColumbos.sayText("Find a blue tile and touch it to move on.")
+    tiles.setTileAt(tiles.getTileLocation(17, 0), sprites.dungeon.collectibleInsignia)
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -469,6 +522,14 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     100,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.lostdude, function (sprite, otherSprite) {
+    CColumbos.sayText("Hey! Your people told me to look for you.", 2000, false)
+    CColumbos.setKind(SpriteKind.helpfulcolumbus)
+    pause(5000)
+    CColumbos.sayText("I'll bring you back to them. Follow me!", 5000, false)
+    pause(2000)
+    lostdude.follow(CColumbos, 100)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -546,6 +607,38 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level7`)
+    tiles.placeOnRandomTile(CColumbos, sprites.castle.tileGrass1)
+    myEnemy = sprites.create(img`
+        . . . . c c c c c c . . . . . . 
+        . . . c 6 7 7 7 7 6 c . . . . . 
+        . . c 7 7 7 7 7 7 7 7 c . . . . 
+        . c 6 c 7 7 7 7 c 7 7 6 c . . . 
+        . c 7 6 c 6 6 c 6 7 7 7 c . . . 
+        . f 7 6 f c c f 6 7 7 7 f . . . 
+        . f 7 7 7 7 7 7 7 7 7 7 f . . . 
+        . . f 7 7 7 7 6 c 7 7 6 f c . . 
+        . . . f c c c c 7 7 6 f 7 7 c . 
+        . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+        . c 7 7 2 7 7 c f c 6 7 7 6 c c 
+        c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+        f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+        f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+        . f 6 1 1 1 1 1 1 6 6 6 f . . . 
+        . . c c c c c c c c c f . . . . 
+        `, SpriteKind.Enemy)
+    tiles.placeOnTile(myEnemy, tiles.getTileLocation(6, 12))
+    CColumbos.sayText("Woah! This snake is venomous... RUN")
+    tileUtil.setWalls(sprites.castle.tilePath5, false)
+    myEnemy.follow(CColumbos, 70)
+    CColumbos.sayText("QUICK! FIND A BLUE TILE AND TOUCH IT TO ESCAPE!!!")
+    if (CColumbos.overlapsWith(myEnemy)) {
+        game.gameOver(false)
+    }
+})
+let myEnemy: Sprite = null
+let lostdude: Sprite = null
 let people2: Sprite = null
 let people: Sprite = null
 let randomtrees: Sprite = null
@@ -615,3 +708,4 @@ CColumbos.sayText("Collect 5 pieces of wood")
 pause(3000)
 CColumbos.sayText("Once you get that, follow the gravel path to the castle", 5000, false)
 pause(5000)
+CColumbos.sayText("We will use the wood to make a boat, but we also need money.", 5000, false)
