@@ -435,17 +435,17 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (sprite, otherSprite) {
     lostdude.setKind(SpriteKind.notlostdude)
     lostdude.follow(people2, 100)
-    people.sayText("Thank you so much!")
+    people.sayText("Thank you so much!", 2000, false)
     pause(3000)
-    people.sayText("Here's your reward.")
+    people.sayText("Here's your reward.", 2000, false)
     pause(2000)
     music.stopAllSounds()
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
     info.setScore(10)
-    CColumbos.sayText("Let's explore a bit more.")
+    CColumbos.sayText("Let's explore a bit more.", 2000, false)
     pause(2000)
-    CColumbos.sayText("Find a blue tile and touch it to move on.")
-    tiles.setTileAt(tiles.getTileLocation(17, 0), sprites.dungeon.collectibleInsignia)
+    CColumbos.sayText("Find a blue tile and touch it to move on.", 2000, false)
+    tiles.setTileAt(tiles.getTileLocation(17, 1), sprites.dungeon.collectibleInsignia)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
