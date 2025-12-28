@@ -447,10 +447,10 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     sprites.destroy(lostdude)
     lostdude.setFlag(SpriteFlag.Invisible, true)
     sprites.destroyAllSpritesOfKind(SpriteKind.Spritesfromcuba)
-    tiles.setCurrentTilemap(tilemap`level7`)
-    if (CColumbos.overlapsWith(myEnemy)) {
+    if (myEnemy.overlapsWith(CColumbos)) {
         game.gameOver(false)
     }
+    tiles.setCurrentTilemap(tilemap`level7`)
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(3, 12))
     myEnemy = sprites.create(img`
         . . . . c c c c c c . . . . . . 
