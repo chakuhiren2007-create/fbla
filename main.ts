@@ -434,7 +434,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (sprite, otherSprite) {
-    lostdude.setKind(SpriteKind.notlostdude)
     lostdude.follow(people2, 100)
     people.sayText("Thank you so much!", 2000, false)
     pause(3000)
@@ -447,36 +446,16 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     sprites.destroy(lostdude)
     lostdude.setFlag(SpriteFlag.Invisible, true)
     sprites.destroyAllSpritesOfKind(SpriteKind.Spritesfromcuba)
-    if (myEnemy.overlapsWith(CColumbos)) {
-        game.gameOver(false)
-    }
-    tiles.setCurrentTilemap(tilemap`level7`)
-    tiles.placeOnTile(CColumbos, tiles.getTileLocation(3, 12))
-    myEnemy = sprites.create(img`
-        . . . . c c c c c c . . . . . . 
-        . . . c 6 7 7 7 7 6 c . . . . . 
-        . . c 7 7 7 7 7 7 7 7 c . . . . 
-        . c 6 c 7 7 7 7 c 7 7 6 c . . . 
-        . c 7 6 c 6 6 c 6 7 7 7 c . . . 
-        . f 7 6 f c c f 6 7 7 7 f . . . 
-        . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-        . . f 7 7 7 7 6 c 7 7 6 f c . . 
-        . . . f c c c c 7 7 6 f 7 7 c . 
-        . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-        . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-        c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-        f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-        f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-        . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-        . . c c c c c c c c c f . . . . 
-        `, SpriteKind.SNAKE)
-    tiles.placeOnTile(myEnemy, tiles.getTileLocation(6, 12))
-    pause(2000)
-    CColumbos.sayText("Woah! This snake is venomous... RUN", 5000, false)
-    pause(2000)
-    tileUtil.setWalls(sprites.castle.tilePath5, false)
-    myEnemy.follow(CColumbos, 80)
-    CColumbos.sayText("QUICK! FIND A BLUE TILE AND TOUCH IT TO ESCAPE!!!", 5000, false)
+    tiles.setCurrentTilemap(tilemap`level3`)
+    animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
+    Thissavedmylifebro = sprites.create(img`
+        9 
+        `, SpriteKind.W)
+    tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
+    CColumbos.setImage(assets.image`boat`)
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(87, 10))
+    controller.moveSprite(CColumbos, 100, 0)
+    CColumbos.follow(Thissavedmylifebro)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -638,19 +617,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
-    tiles.setCurrentTilemap(tilemap`level3`)
-    animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
-    Thissavedmylifebro = sprites.create(img`
-        9 
-        `, SpriteKind.W)
-    tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
-    CColumbos.setImage(assets.image`boat`)
-    tiles.placeOnTile(CColumbos, tiles.getTileLocation(87, 10))
-    controller.moveSprite(CColumbos, 100, 0)
-    CColumbos.follow(Thissavedmylifebro)
-})
-let myEnemy: Sprite = null
 let lostdude: Sprite = null
 let people2: Sprite = null
 let people: Sprite = null
