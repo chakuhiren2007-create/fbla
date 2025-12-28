@@ -190,7 +190,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
         pause(15000)
-        info.changeScoreBy(1999995)
+        info.changeScoreBy(2000000)
         pause(1000)
         tiles.setCurrentTilemap(tilemap`level3`)
         info.setScore(0)
@@ -357,9 +357,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
         `, SpriteKind.lostdude)
     tiles.placeOnRandomTile(lostdude, sprites.castle.tileGrass3)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.SNAKE, function (sprite, otherSprite) {
-    game.gameOver(false)
-})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -447,10 +444,13 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
     info.setScore(10)
     pause(2000)
+    sprites.destroy(lostdude)
     lostdude.setFlag(SpriteFlag.Invisible, true)
     sprites.destroyAllSpritesOfKind(SpriteKind.Spritesfromcuba)
     tiles.setCurrentTilemap(tilemap`level7`)
-    pause(2000)
+    if (CColumbos.overlapsWith(myEnemy)) {
+        game.gameOver(false)
+    }
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(3, 12))
     myEnemy = sprites.create(img`
         . . . . c c c c c c . . . . . . 
@@ -472,11 +472,11 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
         `, SpriteKind.SNAKE)
     tiles.placeOnTile(myEnemy, tiles.getTileLocation(6, 12))
     pause(2000)
-    CColumbos.sayText("Woah! This snake is venomous... RUN", 2000, false)
+    CColumbos.sayText("Woah! This snake is venomous... RUN", 5000, false)
     pause(2000)
     tileUtil.setWalls(sprites.castle.tilePath5, false)
     myEnemy.follow(CColumbos, 80)
-    CColumbos.sayText("QUICK! FIND A BLUE TILE AND TOUCH IT TO ESCAPE!!!")
+    CColumbos.sayText("QUICK! FIND A BLUE TILE AND TOUCH IT TO ESCAPE!!!", 5000, false)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -638,6 +638,18 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level3`)
+    animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
+    Thissavedmylifebro = sprites.create(img`
+        9 
+        `, SpriteKind.W)
+    tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
+    CColumbos.setImage(assets.image`boat`)
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(87, 10))
+    controller.moveSprite(CColumbos, 100, 0)
+    CColumbos.follow(Thissavedmylifebro)
+})
 let myEnemy: Sprite = null
 let lostdude: Sprite = null
 let people2: Sprite = null
@@ -704,7 +716,6 @@ CColumbos.sayText("Hi Nice to Meet You", 2000, false)
 pause(3000)
 CColumbos.sayText("I'm Christopher Columbus", 5000, false)
 pause(3000)
-music.play(music.createSong(hex`0064000408020106001c00010a006400f4016400000400000000000000000000000000000000023b0000000400012504000800012408000c0002202510001400011d1c0020000322252920002400012524002800012528002c00031e24253c004000011e`), music.PlaybackMode.LoopingInBackground)
 CColumbos.sayText("Collect 5 pieces of wood")
 pause(3000)
 CColumbos.sayText("Once you get that, follow the gravel path to the castle", 5000, false)
