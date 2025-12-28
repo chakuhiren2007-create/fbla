@@ -442,10 +442,12 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     music.stopAllSounds()
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
     info.setScore(10)
+    CColumbos.sayText("Let's go explore somewhere else!", 5000, false)
     pause(2000)
     sprites.destroy(lostdude)
     lostdude.setFlag(SpriteFlag.Invisible, true)
     sprites.destroyAllSpritesOfKind(SpriteKind.Spritesfromcuba)
+    sprites.destroyAllSpritesOfKind(SpriteKind.randomtree)
     tiles.setCurrentTilemap(tilemap`level3`)
     animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
     Thissavedmylifebro = sprites.create(img`
@@ -455,7 +457,7 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     CColumbos.setImage(assets.image`boat`)
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(87, 10))
     controller.moveSprite(CColumbos, 100, 0)
-    CColumbos.follow(Thissavedmylifebro)
+    CColumbos.follow(Thissavedmylifebro, 100)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
