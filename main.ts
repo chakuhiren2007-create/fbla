@@ -15,7 +15,21 @@ namespace SpriteKind {
     export const notlostdude = SpriteKind.create()
     export const idkwhat2put4name = SpriteKind.create()
     export const SNAKE = SpriteKind.create()
+    export const w2 = SpriteKind.create()
+    export const nativet = SpriteKind.create()
+    export const crop = SpriteKind.create()
+    export const w3 = SpriteKind.create()
+    export const bandit = SpriteKind.create()
+    export const thing = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.bandit, function (sprite, otherSprite) {
+    info.changeScoreBy(-1000)
+    if (info.score() <= 0) {
+        game.gameOver(false)
+        game.setGameOverMessage(false, "GAME OVER!")
+        game.reset()
+    }
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -190,10 +204,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
         scaling.scaleByPercent(Queen, 50, ScaleDirection.Vertically, ScaleAnchor.Middle)
         pause(15000)
+        music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
         info.changeScoreBy(2000000)
+        music.play(music.createSong(hex`0078000408020401001c000f05001202c102c2010004050028000000640028000314000602000406003c004000012206001c00010a006400f4016400000400000000000000000000000000000000025b0004000800021e2508000c000220250c001000012410001400031e242914001800012a18001c00012a1c00200002202420002400012524002800012028002c00031b20272c003000011b30003400012534003800012038003c00012c07001c00020a006400f4016400000400000000000000000000000000000000031e0000000400012c1400180001252400280001253000340001193c004000011e09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800360004000500010a08000900010b0c000d0001001400150001001c001d0001002400250001002c002d0001003400350001003c003d000100`), music.PlaybackMode.LoopingInBackground)
         pause(1000)
         tiles.setCurrentTilemap(tilemap`level3`)
-        info.setScore(0)
+        info.setScore(150000)
         animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
         Thissavedmylifebro = sprites.create(img`
             9 
@@ -205,6 +221,151 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         Queen.setFlag(SpriteFlag.Invisible, true)
         King.setFlag(SpriteFlag.Invisible, true)
         CColumbos.follow(Thissavedmylifebro)
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprite) {
+    sprites.destroyAllSpritesOfKind(SpriteKind.w2)
+    tiles.setCurrentTilemap(tilemap`level5`)
+    music.play(music.createSong(hex`0078000408020401001c000f05001202c102c2010004050028000000640028000314000602000406003c004000012206001c00010a006400f4016400000400000000000000000000000000000000025b0004000800021e2508000c000220250c001000012410001400031e242914001800012a18001c00012a1c00200002202420002400012524002800012028002c00031b20272c003000011b30003400012534003800012038003c00012c07001c00020a006400f4016400000400000000000000000000000000000000031e0000000400012c1400180001252400280001253000340001193c004000011e09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800360004000500010a08000900010b0c000d0001001400150001001c001d0001002400250001002c002d0001003400350001003c003d000100`), music.PlaybackMode.LoopingInBackground)
+    CColumbos.setImage(img`
+        . . . . . . . f f f . . . . . . 
+        . . . . f f f f f f f f f . . . 
+        . . . . f f f f f f f f f . . . 
+        . . . . f f f f f f f f f f . . 
+        . . . f f f f f f f f f f f . . 
+        f f f f f f f f f f f f f f f f 
+        f f f f f f f f f f f f f f f f 
+        . e e e f f f 4 4 f f f e e e . 
+        . e e e 4 1 4 d d 4 1 4 e e e . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e f f f f e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `)
+    taino_person = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f . . . . . . 
+        . . . f f f f f f f f f . . . . 
+        . . . f f f f e f f f f f . . . 
+        . . f f f e f e e f e e f . . . 
+        . . f f e e 1 e e 1 e e f f . . 
+        . . f f e e e e e e e e f f . . 
+        . . f f e e e e e e e e f f . . 
+        . . f f e e e f f e e e f f . . 
+        . f f f f f f e e e f f f f . . 
+        . . 7 7 7 7 e e e e 7 7 7 7 . . 
+        . . 7 7 7 7 7 e e e 7 7 7 7 e . 
+        . e e 7 7 7 7 7 7 7 7 7 7 7 e . 
+        e e e . 7 7 7 7 7 7 7 7 7 e e e 
+        e e . . . 7 7 7 7 7 7 7 . . e e 
+        e . . . . 7 7 7 7 7 7 . . . e e 
+        . . . . . 7 7 7 7 7 7 . . . . . 
+        . . . . . e e . . e e . . . . . 
+        `, SpriteKind.nativet)
+    tiles.placeOnTile(taino_person, tiles.getTileLocation(3, 13))
+    controller.moveSprite(CColumbos, 100, 100)
+    taino_person.sayText("Hello, I am a taino native.", 2000, false)
+    pause(2000)
+    CColumbos.sayText("Hi, I am Christopher Columbus. I shall name this place Juana.. ", 2000, false)
+    pause(2000)
+    CColumbos.sayText("I am looking for riches. ", 2000, false)
+    pause(2000)
+    taino_person.sayText("Lets do this, I will give you crops for a small favor.", 2000, false)
+    pause(2000)
+    taino_person.sayText("All you have to do is collect 30 crops of tobacco and corn. Can you do it? ", 2000, false)
+    pause(2000)
+    CColumbos.sayText("Bet", 2000, false)
+    tileUtil.setWalls(sprites.castle.tileGrass1, false)
+    tileUtil.setWalls(sprites.castle.tilePath5, false)
+    tileUtil.setWalls(sprites.castle.tileGrass3, false)
+    COrn = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 5 5 . . . . . . . 
+        . . . . . 5 5 5 5 . . . . . . . 
+        . . . . 5 5 5 5 5 5 . . . . . . 
+        . . . . 5 5 5 5 5 5 . . . . . . 
+        . . . . 5 5 5 5 5 5 . . . . . . 
+        . 6 6 . 5 5 5 5 5 5 . 6 6 . . . 
+        . 6 6 6 5 5 5 5 5 5 6 6 6 . . . 
+        . 6 6 6 6 5 5 5 6 6 6 6 . . . . 
+        . . 6 6 6 6 5 6 6 6 6 6 . . . . 
+        . . . 6 6 6 6 6 6 6 6 . . . . . 
+        . . . . 6 6 6 6 6 6 6 . . . . . 
+        . . . . 6 6 6 6 6 6 . . . . . . 
+        . . . . . 6 6 6 6 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.crop)
+    tobacco = sprites.create(img`
+        . . . . . . . . . 7 7 7 . . . . 
+        . . . . . . . . 7 7 . . . . . . 
+        . . . 7 7 . . . 7 . . . . . . . 
+        . . . . 7 7 7 7 7 . . . . . . . 
+        . 7 7 . . 7 7 7 . . . . . . . . 
+        . . 7 7 . 7 . 7 7 . . . . . . . 
+        7 7 7 7 7 . 7 7 7 . . . 7 7 . . 
+        . . 7 7 7 7 7 7 7 . 7 7 7 7 7 . 
+        . . . 7 7 7 7 7 7 7 7 7 . . . . 
+        . . . . . 7 7 7 7 7 . . . . . . 
+        . . 7 7 7 7 7 7 7 7 7 . . . . . 
+        7 7 7 . . . 7 7 7 7 7 7 7 7 . . 
+        . . . . . . 7 . 7 . . . . 7 . . 
+        . . . . . . 7 7 7 . . . . . . . 
+        . . . . . . . 7 7 . . . . . . . 
+        . . . . . . . . 7 . . . . . . . 
+        `, SpriteKind.crop)
+    tiles.placeOnRandomTile(COrn, sprites.castle.tileGrass3)
+    tiles.placeOnRandomTile(tobacco, sprites.castle.tileGrass3)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.crop, function (sprite, otherSprite) {
+    sprites.destroyAllSpritesOfKind(SpriteKind.crop)
+    for (let index = 0; index < 4; index++) {
+        COrn = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . 5 5 . . . . . . . 
+            . . . . . 5 5 5 5 . . . . . . . 
+            . . . . 5 5 5 5 5 5 . . . . . . 
+            . . . . 5 5 5 5 5 5 . . . . . . 
+            . . . . 5 5 5 5 5 5 . . . . . . 
+            . 6 6 . 5 5 5 5 5 5 . 6 6 . . . 
+            . 6 6 6 5 5 5 5 5 5 6 6 6 . . . 
+            . 6 6 6 6 5 5 5 6 6 6 6 . . . . 
+            . . 6 6 6 6 5 6 6 6 6 6 . . . . 
+            . . . 6 6 6 6 6 6 6 6 . . . . . 
+            . . . . 6 6 6 6 6 6 6 . . . . . 
+            . . . . 6 6 6 6 6 6 . . . . . . 
+            . . . . . 6 6 6 6 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.crop)
+        tobacco = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 6 6 . . . 6 6 6 . . . 
+            . . . . . 6 6 6 6 6 6 6 . . . . 
+            . 6 . . . . 6 6 6 6 6 . . . . . 
+            . 6 6 6 6 . 6 6 6 6 6 . 6 6 . . 
+            . 6 6 6 6 6 . 6 6 6 6 6 6 6 . . 
+            . . 6 6 6 6 6 6 6 6 6 6 6 6 . . 
+            . . . 6 6 6 6 6 6 6 6 6 6 6 . . 
+            . . . . 6 6 6 6 6 6 6 . . . . . 
+            . . . 6 6 6 6 6 6 6 6 6 6 . . . 
+            . 6 6 6 6 6 6 6 6 6 6 6 6 6 6 . 
+            . 6 6 6 6 6 . 6 6 e . . . 6 6 . 
+            . . . . . . . e e e . . . . 6 . 
+            . . . . . . . e e e . . . . . . 
+            . . . . . . . e e e . . . . . . 
+            `, SpriteKind.crop)
+        tiles.placeOnRandomTile(COrn, sprites.castle.tileGrass3)
+        tiles.placeOnRandomTile(tobacco, sprites.castle.tileGrass3)
+    }
+    info.changeScoreBy(1)
+    if (info.score() >= 150080) {
+        sprites.destroyAllSpritesOfKind(SpriteKind.crop)
+        CColumbos.sayText("Lets go back to the native and give him the crops!", 15000, false)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite) {
@@ -319,17 +480,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
         . . . . . e e . . e e . . . . . 
         `, SpriteKind.Spritesfromcuba)
     tiles.placeOnTile(people2, tiles.getTileLocation(4, 13))
-    people2.sayText("Hello! We are the Indigenous Taíno people", 5000, false)
+    people2.sayText("Hello! We are the Indigenous Nahua people", 5000, false)
     pause(4000)
-    CColumbos.sayText("Hi! I'm Christopher columbus!", 5000, false)
+    CColumbos.sayText("Hi! I'm Christopher Columbus!", 5000, false)
     pause(4000)
     CColumbos.sayText("Nice to meet you!", 2000, false)
     pause(4000)
-    CColumbos.sayText("Cuba is pretty cool.", 2000, false)
+    CColumbos.sayText("Wow, can't believe I am in Asia! I am going to call this place San Salvador!", 2000, false)
     pause(4000)
     CColumbos.sayText("I'm going to search for gold!", 2000, false)
     pause(2000)
-    people2.sayText("WAIT", 2000, false)
+    people2.sayText("We are the native Nahua people. If you want gold, listen to us.", 2000, false)
     pause(2000)
     people2.sayText("We are missing one of our people.", 5000, false)
     pause(4000)
@@ -433,6 +594,62 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.nativet, function (sprite, otherSprite) {
+    if (info.score() >= 150080) {
+        taino_person.sayText("Thank you, I was too lazy to get those crops. For payment, I will give you half of these crops. ", 2000, false)
+        info.changeScoreBy(-30)
+        pause(2000)
+        music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
+        pause(2000)
+        info.changeScoreBy(15)
+        CColumbos.sayText("I can't wait to show the king and queen the goods that I found here.", 5000, false)
+        pause(2000)
+        CColumbos.sayText("Time to go back home.", 5000, false)
+        sprites.destroyAllSpritesOfKind(SpriteKind.nativet)
+        tiles.setCurrentTilemap(tilemap`level3`)
+        animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
+        Thissavedmylifebro = sprites.create(img`
+            9 
+            `, SpriteKind.w3)
+        CColumbos.setKind(SpriteKind.Player)
+        CColumbos.setImage(img`
+            ............fff...............
+            ............fddfd.............
+            ..........ffddddf.............
+            .......ffffffddddfd...........
+            ......ff2222ffffdff...........
+            ......f2222222efddff..........
+            ......f2222222eedddff.........
+            .....ff2222222eeddddff........
+            .....fffffff22eedddddff.......
+            ......fddddfffeeddddddf.......
+            .....fddddddddeedddddddf......
+            ....fdddddddddeedddddddff.....
+            ...ffdddddddddeeddddddddf.....
+            ..ffddddddddddeeddddddddff....
+            ..fdddddddddddeedddddddddff...
+            ffddddddddddddeefffdddddddf...
+            ffddddfffffffeeefffffffffff...
+            .ffffff.....eeee............ff
+            .ffffffffffffeee...........fff
+            ffeeeeeeeeeeffffffffffffffffef
+            feeeeeeeeeeeefeeeeeeeffffeeeef
+            feeeeeeeeeeeeeeeeeeeeeeeeeeeff
+            feeeeeeeeeeeeeeeeeeeeeeeeeeff.
+            ffeeeeeeeeeeeeeeeeeeeeeeeeeff.
+            ffeeeeeeeeeeeeeeeeeeeeeeeefff.
+            ffeeeeeeeeeeeeeeeeeeeeeeefff..
+            efeeeeeeeeeeeeeeeeeeeeefff....
+            .ffffeeeeeeeeeeeeeeeeeffff....
+            ....fffeeeeeeeeeeeeeefff......
+            .......fffffffffffffff........
+            `)
+        tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(87, 10))
+        tiles.placeOnTile(CColumbos, tiles.getTileLocation(0, 10))
+        controller.moveSprite(CColumbos, 100, 0)
+        CColumbos.follow(Thissavedmylifebro, 100)
+    }
+})
 sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (sprite, otherSprite) {
     lostdude.follow(people2, 100)
     people.sayText("Thank you so much!", 2000, false)
@@ -441,7 +658,8 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     pause(2000)
     music.stopAllSounds()
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
-    info.setScore(10)
+    music.play(music.createSong(hex`0078000408020401001c000f05001202c102c2010004050028000000640028000314000602000406003c004000012206001c00010a006400f4016400000400000000000000000000000000000000025b0004000800021e2508000c000220250c001000012410001400031e242914001800012a18001c00012a1c00200002202420002400012524002800012028002c00031b20272c003000011b30003400012534003800012038003c00012c07001c00020a006400f4016400000400000000000000000000000000000000031e0000000400012c1400180001252400280001253000340001193c004000011e09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800360004000500010a08000900010b0c000d0001001400150001001c001d0001002400250001002c002d0001003400350001003c003d000100`), music.PlaybackMode.LoopingInBackground)
+    info.changeScoreBy(50)
     CColumbos.sayText("Let's go explore somewhere else!", 5000, false)
     pause(2000)
     sprites.destroy(lostdude)
@@ -452,12 +670,13 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     animation.stopAnimation(animation.AnimationTypes.All, CColumbos)
     Thissavedmylifebro = sprites.create(img`
         9 
-        `, SpriteKind.W)
-    tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
-    CColumbos.setImage(assets.image`boat`)
-    tiles.placeOnTile(CColumbos, tiles.getTileLocation(87, 10))
+        `, SpriteKind.w2)
     controller.moveSprite(CColumbos, 100, 0)
-    CColumbos.follow(Thissavedmylifebro, 100)
+    CColumbos.setKind(SpriteKind.Player)
+    tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(99, 12))
+    CColumbos.setImage(assets.image`boat`)
+    CColumbos.follow(Thissavedmylifebro)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -619,10 +838,75 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.thing, function (sprite, otherSprite) {
+    sprites.destroyAllSpritesOfKind(SpriteKind.bandit)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.w3, function (sprite, otherSprite) {
+    tiles.setCurrentTilemap(tilemap`level6`)
+    sprites.destroyAllSpritesOfKind(SpriteKind.w3)
+    CColumbos.setImage(img`
+        . . . . . . . f f f . . . . . . 
+        . . . . f f f f f f f f f . . . 
+        . . . . f f f f f f f f f . . . 
+        . . . . f f f f f f f f f f . . 
+        . . . f f f f f f f f f f f . . 
+        f f f f f f f f f f f f f f f f 
+        f f f f f f f f f f f f f f f f 
+        . e e e f f f 4 4 f f f e e e . 
+        . e e e 4 1 4 d d 4 1 4 e e e . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e f f f f e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `)
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(2, 7))
+    controller.moveSprite(CColumbos, 100, 100)
+    CColumbos.sayText("Finally I am back, that voyage took a long time ", 2000, false)
+    pause(2000)
+    CColumbos.sayText("Hopefully a bandit does not come to steal my goods.", 5000, false)
+    pause(2000)
+    bandit = sprites.create(img`
+        . . . . f f f f . . . . 
+        . . f f f f f f f f . . 
+        . f f f f f f f f f f . 
+        f f f f f f f f f f f f 
+        f f f f f f f f f f f f 
+        f f f f f f f f f f f f 
+        f f f 1 f f f f 1 f f f 
+        f f f f f f f f f f f f 
+        f f f f f f f f f f f f 
+        . f f f 1 1 1 1 f f f . 
+        . f f f 1 1 1 1 f f f . 
+        f f f f f f f f f f f f 
+        f f f f f f f f f f f f 
+        f f f f f f f f f f f f 
+        . . . f f f f f f . . . 
+        . . . f f . . f f . . . 
+        `, SpriteKind.bandit)
+    scapegoat = sprites.create(img`
+        9 
+        9 
+        `, SpriteKind.thing)
+    tiles.placeOnTile(bandit, tiles.getTileLocation(7, 7))
+    tiles.placeOnTile(scapegoat, tiles.getTileLocation(13, 21))
+    bandit.sayText("give me the goods!!!")
+    pause(2000)
+    CColumbos.sayText("Oh no, get to the castle before he catches us.")
+    pause(1000)
+    bandit.follow(CColumbos, 75)
+})
+let scapegoat: Sprite = null
+let bandit: Sprite = null
 let lostdude: Sprite = null
 let people2: Sprite = null
 let people: Sprite = null
 let randomtrees: Sprite = null
+let tobacco: Sprite = null
+let COrn: Sprite = null
+let taino_person: Sprite = null
 let Thissavedmylifebro: Sprite = null
 let Queen: Sprite = null
 let King: Sprite = null
