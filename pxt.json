@@ -12,7 +12,8 @@
         "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0",
         "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
         "carnival": "github:microsoft/arcade-carnival#v0.0.7",
-        "sprite-scaling": "*"
+        "sprite-scaling": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0"
     },
     "files": [
         "main.blocks",

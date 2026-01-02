@@ -34,6 +34,7 @@ namespace SpriteKind {
     export const w6 = SpriteKind.create()
     export const carib = SpriteKind.create()
     export const w7 = SpriteKind.create()
+    export const nativefromtrinidad = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bandit, function (sprite, otherSprite) {
     info.changeScoreBy(-10000)
@@ -243,6 +244,28 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter3, function (sprite, othe
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
+    tiles.setCurrentTilemap(tilemap`level12`)
+    controller.moveSprite(CColumbos)
+    nativefromtrinidad = sprites.create(img`
+        . f f f . f f f f . f f f . 
+        f f f f f f f f f f f f f f 
+        f f f f f f f f f f f f f f 
+        f f f f f f f f f f f f f f 
+        . f f f f f f f f f f f f . 
+        . f f f f f f f f f f f f . 
+        . f f f f f f f f f f f f . 
+        . f f f b f 4 4 f b f f f . 
+        . f f 4 1 f d d f 1 4 f f . 
+        . . 7 7 7 d d d d 7 7 7 . . 
+        . . 7 7 7 7 7 7 7 7 7 7 . . 
+        . e 7 7 7 7 7 7 7 7 7 7 e . 
+        . 4 7 7 7 7 7 7 7 7 7 7 4 . 
+        . 4 4 7 7 7 7 7 7 7 7 4 4 . 
+        . . . . f f f f f f . . . . 
+        . . . . f f . . f f . . . . 
+        `, SpriteKind.nativefromtrinidad)
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(2, 5))
+    tiles.placeOnTile(nativefromtrinidad, tiles.getTileLocation(7, 6))
     CColumbos.setImage(img`
         . . . . . . . f f f . . . . . . 
         . . . . f f f f f f f f f . . . 
@@ -261,7 +284,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
         `)
-    tiles.setCurrentTilemap(tilemap`level12`)
+    CColumbos.sayText("I'm parched, I really need some water from exploring all these islands.", 2000, false)
+    pause(2000)
+    nativefromtrinidad.sayText("Hello, I am a Taino native on this beautiful island")
+    pause(2000)
+    CColumbos.sayText("Hello, I have already encounter the Taino, they are very peaceful.", 2000, false)
+    pause(2000)
+    CColumbos.sayText("I shall name this Island Trinidad, after the Holy Trinidad!", 2000, false)
+    pause(2000)
+    CColumbos.sayText("Do you have any riches, or any water that I could drink.", 2000, false)
+    pause(2000)
+    nativefromtrinidad.sayText("Sure, if you explore the island, you are bound to find a freshwater source. ")
+    pause(2000)
+    CColumbos.sayText("Hmm, ok, I shall go explore.", 2000, false)
+    tileUtil.setWalls(sprites.castle.tilePath5, false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSprite) {
     CColumbos.sayText("Wow, I have never seen this fruit before", 2000, false)
@@ -1425,6 +1461,7 @@ let tobacco: Sprite = null
 let COrn: Sprite = null
 let taino_person: Sprite = null
 let pineapple: Sprite = null
+let nativefromtrinidad: Sprite = null
 let Thissavedmylifebro: Sprite = null
 let Queen: Sprite = null
 let King: Sprite = null
