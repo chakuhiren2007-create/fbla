@@ -263,13 +263,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w8, function (sprite, otherSprit
     pause(5000)
     CColumbos.sayText("There seems to be an abundance of freshwater here.", 5000, false)
     pause(5000)
-    CColumbos.sayText("Oh my god, that means that I am in a continent.", 5000, false)
+    CColumbos.sayText("Oh my gosh, that means that I am in a continent.", 5000, false)
     pause(5000)
     CColumbos.sayText("I must go explore and name all of this in the name of Spain.", 5000, false)
     pause(5000)
     game.gameOver(true)
-    game.setGameOverEffect(true, effects.confetti)
     game.setGameOverMessage(true, "And off he went.")
+    game.setGameOverEffect(true, effects.confetti)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter3, function (sprite, otherSprite) {
     game.gameOver(false)
@@ -280,15 +280,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.waterfinder, function (sprite, o
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
     CColumbos.sayText("Hello, I am Christopher Columbus, your friend sent me. ", 2000, false)
     pause(2000)
-    CColumbos.sayText("Ah yes, I finally found water, but i don't know if it is fresh. ", 2000, false)
+    CColumbos.sayText("Ah yes, I finally found water, but i don't know if it is fresh. ", 5000, false)
     pause(2000)
-    waterfinder.sayText("yeah, the water is fresh, I will give you some.", 2000, false)
+    waterfinder2.sayText("Yeah, the water is fresh, I will give you some.", 2000, false)
     pause(5000)
-    CColumbos.sayText("This water is unusually fresh! Since it is coming from such a big river,  ", 2000, false)
+    CColumbos.sayText("This water is unusually fresh! Since it is coming from such a big river,  ", 5000, false)
     music.stopAllSounds()
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
     pause(500)
-    CColumbos.sayText("That means that I am close to mainland. I shall take off at once!", 2000, false)
+    CColumbos.sayText("That means that I am close to mainland. I shall take off at once!", 5000, false)
     pause(1000)
     sprites.destroyAllSpritesOfKind(SpriteKind.nativefromtrinidad)
     sprites.destroyAllSpritesOfKind(SpriteKind.waterfinder)
@@ -308,7 +308,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
     tiles.setCurrentTilemap(tilemap`level12`)
     controller.moveSprite(CColumbos)
-    waterfinder = sprites.create(img`
+    waterfinder2 = sprites.create(img`
         . . . . f f f f . . . . 
         f . f f f f f f f f . . 
         . 2 f f f f f f f f f . 
@@ -326,7 +326,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
         . . . c c c c c c . . . 
         . . . c c . . c c . . . 
         `, SpriteKind.waterfinder)
-    nativefromtrinidad = sprites.create(img`
+    nativefromtrinidad2 = sprites.create(img`
         . f f f . f f f f . f f f . 
         f f f f f f f f f f f f f f 
         f f f f f f f f f f f f f f 
@@ -345,8 +345,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
         . . . . f f . . f f . . . . 
         `, SpriteKind.nativefromtrinidad)
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(2, 5))
-    tiles.placeOnTile(nativefromtrinidad, tiles.getTileLocation(7, 6))
-    tiles.placeOnTile(waterfinder, tiles.getTileLocation(35, 27))
+    tiles.placeOnTile(nativefromtrinidad2, tiles.getTileLocation(7, 6))
+    tiles.placeOnTile(waterfinder2, tiles.getTileLocation(35, 27))
     CColumbos.setImage(img`
         . . . . . . . f f f . . . . . . 
         . . . . f f f f f f f f f . . . 
@@ -367,7 +367,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
         `)
     CColumbos.sayText("I'm parched, I really need some water from exploring all these islands.", 5000, false)
     pause(5000)
-    nativefromtrinidad.sayText("Hello, I am a Taino native on this beautiful island", 5000, false)
+    nativefromtrinidad2.sayText("Hello, I am a Taino native on this beautiful island", 5000, false)
     pause(5000)
     CColumbos.sayText("Hello, I have already encounter the Taino, they are very peaceful.", 5000, false)
     pause(5000)
@@ -375,7 +375,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
     pause(5000)
     CColumbos.sayText("Do you have any riches, or any water that I could drink.", 5000, false)
     pause(5000)
-    nativefromtrinidad.sayText("Sure, if you follow the path, then you will meet someone else ", 5000, false)
+    nativefromtrinidad2.sayText("Sure, if you follow the path, then you will meet someone else ", 5000, false)
     pause(5000)
     CColumbos.sayText("Hmm, ok, I shall go explore.", 2000, false)
     tileUtil.setWalls(sprites.castle.tilePath5, false)
@@ -385,12 +385,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSp
     pause(2000)
     CColumbos.sayText("I must show this to the king and queen.", 2000, false)
     info.changeScoreBy(50)
-    CColumbos.sayText("Collect and then go back to native after collecting 2 things", 2000, false)
+    CColumbos.sayText("Collect and then go back to native after collecting 2 things", 5000, false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w2)
     tiles.setCurrentTilemap(tilemap`level5`)
-    music.play(music.createSong(hex`0078000408020401001c000f05001202c102c2010004050028000000640028000314000602000406003c004000012206001c00010a006400f4016400000400000000000000000000000000000000025b0004000800021e2508000c000220250c001000012410001400031e242914001800012a18001c00012a1c00200002202420002400012524002800012028002c00031b20272c003000011b30003400012534003800012038003c00012c07001c00020a006400f4016400000400000000000000000000000000000000031e0000000400012c1400180001252400280001253000340001193c004000011e09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800360004000500010a08000900010b0c000d0001001400150001001c001d0001002400250001002c002d0001003400350001003c003d000100`), music.PlaybackMode.LoopingInBackground)
+    music.play(music.createSong(hex`0078000408020100001c00010a006400f401640000040000000000000000000000000005000004440000000400012208000c00012a0c001000012210001400011b18001c00021e2720002400012524002800012228002c0001253000340002202738003c0001273c0040000127`), music.PlaybackMode.LoopingInBackground)
     CColumbos.setImage(img`
         . . . . . . . f f f . . . . . . 
         . . . . f f f f f f f f f . . . 
@@ -433,13 +433,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprit
     controller.moveSprite(CColumbos, 100, 100)
     taino_person.sayText("Hello, I am a taino native.", 2000, false)
     pause(2000)
-    CColumbos.sayText("Hi, I am Christopher Columbus. I shall name this place Juana.. ", 2000, false)
+    CColumbos.sayText("Hi, I am Christopher Columbus. I shall name this place Juana.. ", 5000, false)
     pause(2000)
     CColumbos.sayText("I am looking for riches. ", 2000, false)
     pause(2000)
-    taino_person.sayText("Lets do this, I will give you crops for a small favor.", 2000, false)
+    taino_person.sayText("Lets do this, I will give you crops for a small favor.", 5000, false)
     pause(2000)
-    taino_person.sayText("All you have to do is collect 30 crops of tobacco and corn. Can you do it? ", 2000, false)
+    taino_person.sayText("All you have to do is collect 30 crops of tobacco and corn. Can you do it? ", 5000, false)
     pause(2000)
     CColumbos.sayText("Bet", 2000, false)
     tileUtil.setWalls(sprites.castle.tileGrass1, false)
@@ -650,19 +650,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
     pause(4000)
     CColumbos.sayText("Nice to meet you!", 2000, false)
     pause(4000)
-    CColumbos.sayText("Wow, can't believe I am in Asia! I am going to call this place San Salvador!", 2000, false)
+    CColumbos.sayText("Wow, can't believe I am in Asia! I am going to call this place San Salvador!", 5000, false)
     pause(4000)
     CColumbos.sayText("I'm going to search for gold!", 2000, false)
     pause(2000)
-    people2.sayText("We are the native Nahua people. If you want gold, listen to us.", 2000, false)
+    people2.sayText("If you want gold, listen to us.", 2000, false)
     pause(2000)
     people2.sayText("We are missing one of our people.", 5000, false)
     pause(4000)
     people2.sayText("We will give you gold if you can find him. Deal?", 5000, false)
     pause(5000)
-    CColumbos.sayText("Deal.", 5000, false)
+    CColumbos.sayText("Deal.", 2000, false)
     tileUtil.setWalls(sprites.castle.tileGrass1, false)
-    lostdude = sprites.create(img`
+    lostdude2 = sprites.create(img`
         . . . . f f f f . . . . 
         f . f f f f f f f f . . 
         . 2 f f f f f f f f f . 
@@ -680,7 +680,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
         . . . c c c c c c . . . 
         . . . c c . . c c . . . 
         `, SpriteKind.lostdude)
-    tiles.placeOnRandomTile(lostdude, sprites.castle.tileGrass3)
+    tiles.placeOnRandomTile(lostdude2, sprites.castle.tileGrass3)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -776,38 +776,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.nativet, function (sprite, other
             9 
             `, SpriteKind.w3)
         CColumbos.setKind(SpriteKind.Player)
-        CColumbos.setImage(img`
-            ............fff...............
-            ............fddfd.............
-            ..........ffddddf.............
-            .......ffffffddddfd...........
-            ......ff2222ffffdff...........
-            ......f2222222efddff..........
-            ......f2222222eedddff.........
-            .....ff2222222eeddddff........
-            .....fffffff22eedddddff.......
-            ......fddddfffeeddddddf.......
-            .....fddddddddeedddddddf......
-            ....fdddddddddeedddddddff.....
-            ...ffdddddddddeeddddddddf.....
-            ..ffddddddddddeeddddddddff....
-            ..fdddddddddddeedddddddddff...
-            ffddddddddddddeefffdddddddf...
-            ffddddfffffffeeefffffffffff...
-            .ffffff.....eeee............ff
-            .ffffffffffffeee...........fff
-            ffeeeeeeeeeeffffffffffffffffef
-            feeeeeeeeeeeefeeeeeeeffffeeeef
-            feeeeeeeeeeeeeeeeeeeeeeeeeeeff
-            feeeeeeeeeeeeeeeeeeeeeeeeeeff.
-            ffeeeeeeeeeeeeeeeeeeeeeeeeeff.
-            ffeeeeeeeeeeeeeeeeeeeeeeeefff.
-            ffeeeeeeeeeeeeeeeeeeeeeeefff..
-            efeeeeeeeeeeeeeeeeeeeeefff....
-            .ffffeeeeeeeeeeeeeeeeeffff....
-            ....fffeeeeeeeeeeeeeefff......
-            .......fffffffffffffff........
-            `)
+        CColumbos.setImage(assets.image`boat`)
         tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(87, 10))
         tiles.placeOnTile(CColumbos, tiles.getTileLocation(0, 10))
         controller.moveSprite(CColumbos, 100, 0)
@@ -815,22 +784,22 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.nativet, function (sprite, other
     }
 })
 sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (sprite, otherSprite) {
-    lostdude.follow(people2, 100)
+    lostdude2.follow(people2, 100)
     people.sayText("Thank you so much!", 2000, false)
     pause(3000)
     people.sayText("Here's your reward.", 2000, false)
     pause(2000)
     music.stopAllSounds()
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
-    music.play(music.createSong(hex`0078000408020401001c000f05001202c102c2010004050028000000640028000314000602000406003c004000012206001c00010a006400f4016400000400000000000000000000000000000000025b0004000800021e2508000c000220250c001000012410001400031e242914001800012a18001c00012a1c00200002202420002400012524002800012028002c00031b20272c003000011b30003400012534003800012038003c00012c07001c00020a006400f4016400000400000000000000000000000000000000031e0000000400012c1400180001252400280001253000340001193c004000011e09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800360004000500010a08000900010b0c000d0001001400150001001c001d0001002400250001002c002d0001003400350001003c003d000100`), music.PlaybackMode.LoopingInBackground)
+    music.play(music.createSong(hex`0078000408020404001c00100500640000041e000004000000000000000000000000000a0400044100040008000224270c001000031d222914001800012418001c00011d1c002000012724002800021b1d2c003000012730003400011d340038000222253c004000012907001c00020a006400f4016400000400000000000000000000000000000000030c0008000c00011930003400012c08001c000e050046006603320000040a002d0000006400140001320002010002180004000800011e18001c00012228002c0001243c004000012409010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800180004000500010b10001100010020002100010b340035000100`), music.PlaybackMode.LoopingInBackground)
     info.changeScoreBy(50)
     CColumbos.sayText("Let's go explore somewhere else!", 5000, false)
     if (info.score() > 1500050) {
         info.setScore(1500050)
     }
     pause(2000)
-    sprites.destroy(lostdude)
-    lostdude.setFlag(SpriteFlag.Invisible, true)
+    sprites.destroy(lostdude2)
+    lostdude2.setFlag(SpriteFlag.Invisible, true)
     sprites.destroyAllSpritesOfKind(SpriteKind.Spritesfromcuba)
     sprites.destroyAllSpritesOfKind(SpriteKind.randomtree)
     tiles.setCurrentTilemap(tilemap`level3`)
@@ -927,7 +896,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.lostdude, function (sprite, othe
     pause(5000)
     CColumbos.sayText("I'll bring you back to them. Follow me!", 5000, false)
     pause(2000)
-    lostdude.follow(CColumbos, 100)
+    lostdude2.follow(CColumbos, 100)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w6, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w6)
@@ -1101,11 +1070,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.thing2, function (sprite, otherS
     scaling.scaleByPercent(King, -50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     tiles.placeOnTile(King, tiles.getTileLocation(3, 17))
     tiles.placeOnTile(Queen, tiles.getTileLocation(8, 17))
+    pause(2000)
     Queen.sayText("Welcome back, what treasures did you find?", 15000, false)
     pause(2000)
     CColumbos.sayText("I got these exotic birds and fruit from the island of Guadelope.", 5000, false)
     pause(5000)
-    King.sayText("Is that it? No gold?", 5000, false)
+    King.sayText("Is that it? No gold?", 2000, false)
     pause(5000)
     CColumbos.sayText("Sadly, the island of Dominica, was filled with dangerous natives.", 5000, false)
     pause(5000)
@@ -1266,13 +1236,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.thing, function (sprite, otherSp
     sprites.destroyAllSpritesOfKind(SpriteKind.bandit)
     Queen.sayText("Congratulations for returning from the trip!", 5000, false)
     pause(5000)
-    King.sayText("What treasures did you happen to fall upon?", 2000, false)
+    King.sayText("What treasures did you happen to fall upon?", 5000, false)
     pause(5000)
-    CColumbos.sayText("I managed to gather gold from the newly named island of San Salvador.", 2000, false)
+    CColumbos.sayText("I managed to gather gold from the newly named island of San Salvador.", 5000, false)
     pause(5000)
     CColumbos.sayText("I also got some new crops from a Taino Native. ", 5000, false)
     pause(5000)
-    King.sayText("We will send you to Asia again. in hopes of getting new treasures. ", 2000, false)
+    King.sayText("We will send you to Asia again. in hopes of getting new treasures. ", 5000, false)
     pause(2000)
     CColumbos.sayText("Ok I will set sail at once. ", 2000, false)
     pause(5000)
@@ -1311,7 +1281,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w5, function (sprite, otherSprit
         . . . . . f f . . f f . . . . . 
         `)
     controller.moveSprite(CColumbos, 100, 100)
-    carib = sprites.create(img`
+    carib2 = sprites.create(img`
         . . . . . . . . . . . . . 2 . . 
         . . . . . . . . . . . . 1 . . . 
         . . . f f f f f f f f 2 f . . . 
@@ -1332,14 +1302,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w5, function (sprite, otherSprit
         . . . . . e e . . e e . . . . . 
         `, SpriteKind.carib)
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(1, 18))
-    tiles.placeOnTile(carib, tiles.getTileLocation(4, 18))
-    carib.sayText("Hello, I am a native Carib on the Island of Guadelope.", 5000, false)
+    tiles.placeOnTile(carib2, tiles.getTileLocation(4, 18))
+    carib2.sayText("Hello, I am a native Carib on the Island of Guadelope.", 5000, false)
     pause(2000)
     CColumbos.sayText("Nice to meet you, I am Christopher Columbus, an explorer. ", 2000, false)
     pause(2000)
     CColumbos.sayText("I am looking for gold.", 2000, false)
     pause(2000)
-    carib.sayText("We do not have any of that around here, however, you can search for treasures around here. ", 2000, false)
+    carib2.sayText("We do not have any of that around here, however, you can search for treasures around here. ", 5000, false)
     pause(2000)
     CColumbos.sayText("Ok, off I go. ", 2000, false)
     tileUtil.setWalls(sprites.castle.tilePath5, false)
@@ -1423,9 +1393,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w3, function (sprite, otherSprit
     controller.moveSprite(CColumbos, 100, 100)
     CColumbos.sayText("Finally I am back, that voyage took a long time ", 2000, false)
     pause(2000)
-    CColumbos.sayText("Hopefully a bandit does not come to steal my goods.", 5000, false)
+    CColumbos.sayText("Hopefully my goods stay safe.", 5000, false)
     pause(2000)
-    bandit = sprites.create(img`
+    bandit2 = sprites.create(img`
         . . . . f f f f . . . . 
         . . f f f f f f f f . . 
         . f f f f f f f f f f . 
@@ -1449,13 +1419,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w3, function (sprite, otherSprit
         9 9 9 9 
         9 9 9 9 
         `, SpriteKind.thing)
-    tiles.placeOnTile(bandit, tiles.getTileLocation(7, 7))
+    tiles.placeOnTile(bandit2, tiles.getTileLocation(7, 7))
     tiles.placeOnTile(scapegoat, tiles.getTileLocation(13, 21))
-    bandit.sayText("give me the goods!!!")
+    bandit2.sayText("GIVE ME THE GOODS NOW!!!")
     pause(2000)
     CColumbos.sayText("Oh no, get to the castle and touch the blue dot to stop him.", 5000, false)
     pause(1000)
-    bandit.follow(CColumbos, 75)
+    bandit2.follow(CColumbos, 75)
     King = sprites.create(img`
         ........ffffffffff.................
         ......ffffffffffffff...............
@@ -1538,23 +1508,23 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.carib, function (sprite, otherSp
     }
 })
 let scapegoat: Sprite = null
-let bandit: Sprite = null
+let bandit2: Sprite = null
 let parrot: Sprite = null
 let pineapple: Sprite = null
-let carib: Sprite = null
+let carib2: Sprite = null
 let kalinagao3: Sprite = null
 let kalingao2: Sprite = null
 let kalinagao1: Sprite = null
 let scapegoat2: Sprite = null
-let lostdude: Sprite = null
+let lostdude2: Sprite = null
 let people2: Sprite = null
 let people: Sprite = null
 let randomtrees: Sprite = null
 let tobacco: Sprite = null
 let COrn: Sprite = null
 let taino_person: Sprite = null
-let nativefromtrinidad: Sprite = null
-let waterfinder: Sprite = null
+let nativefromtrinidad2: Sprite = null
+let waterfinder2: Sprite = null
 let Thissavedmylifebro: Sprite = null
 let Queen: Sprite = null
 let King: Sprite = null
