@@ -4,25 +4,35 @@ This project is a fun historical game about Christopher Columbus and his voyages
 
 
 Players Will:
+
 -Explore islands
+
 -Complete Tasks
+
 -Interact with tribes
+
 -Collect Resources
+
 -Sail through the sea
 
 
 Gameplay features:
+
 -Multiple Voyages
+
 -Complete Tasks
+
 -Gather Goods
+
 -Explore
+
 -Interaction with NPCs
 
 
 Built with Microsoft MakeCode Arcade
 
 
-Controls: Arrow Keys/WASD, A button, B button, Menu
+Controls: Arrow Keys/WASD, A button, B button, Menu button.
 
 
 How to run the game: Open Microsoft MakeCode Arcade and wait for it to load.
