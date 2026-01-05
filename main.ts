@@ -37,6 +37,7 @@ namespace SpriteKind {
     export const nativefromtrinidad = SpriteKind.create()
     export const w8 = SpriteKind.create()
     export const waterfinder = SpriteKind.create()
+    export const Authors = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bandit, function (sprite, otherSprite) {
     game.gameOver(false)
@@ -118,6 +119,29 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     100,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Authors, function (sprite, otherSprite) {
+    CColumbos.sayText("Hi! How do I move?", 2000, false)
+    pause(2000)
+    Authors.sayText("Hi we are the developers of the game! You can move using WASD or the arrow keys.", 5000, false)
+    pause(5000)
+    CColumbos.sayText("How do I interact with NPCs?", 2000, false)
+    pause(2000)
+    Authors.sayText("You interact with the NPCs by overlapping them.", 5000, false)
+    pause(5000)
+    CColumbos.sayText("How do I sail my boat?", 2000, false)
+    pause(2000)
+    Authors.sayText("You sail your boat my not touching anything and letting the boat automatically go", 7000, false)
+    pause(5000)
+    CColumbos.sayText("How do I get goods?", 5000, false)
+    pause(5000)
+    Authors.sayText("You get goods by completing tasks.", 2000, false)
+    pause(3000)
+    Authors.sayText("The goods you get is your score.", 2000, false)
+    pause(2000)
+    Authors.sayText("BYE! Hope you enjoy our game!", 2000, false)
+    pause(2000)
+    sprites.destroyAllSpritesOfKind(SpriteKind.Authors)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -390,6 +414,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSp
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w2)
     tiles.setCurrentTilemap(tilemap`level5`)
+    music.stopAllSounds()
     music.play(music.createSong(hex`0078000408020100001c00010a006400f401640000040000000000000000000000000005000004440000000400012208000c00012a0c001000012210001400011b18001c00021e2720002400012524002800012228002c0001253000340002202738003c0001273c0040000127`), music.PlaybackMode.LoopingInBackground)
     CColumbos.setImage(img`
         . . . . . . . f f f . . . . . . 
@@ -791,7 +816,6 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     pause(2000)
     music.stopAllSounds()
     music.play(music.melodyPlayable(music.beamUp), music.PlaybackMode.UntilDone)
-    music.play(music.createSong(hex`0078000408020404001c00100500640000041e000004000000000000000000000000000a0400044100040008000224270c001000031d222914001800012418001c00011d1c002000012724002800021b1d2c003000012730003400011d340038000222253c004000012907001c00020a006400f4016400000400000000000000000000000000000000030c0008000c00011930003400012c08001c000e050046006603320000040a002d0000006400140001320002010002180004000800011e18001c00012228002c0001243c004000012409010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c800180004000500010b10001100010020002100010b340035000100`), music.PlaybackMode.LoopingInBackground)
     info.changeScoreBy(50)
     CColumbos.sayText("Let's go explore somewhere else!", 5000, false)
     if (info.score() > 1500050) {
@@ -1530,7 +1554,31 @@ let Queen: Sprite = null
 let King: Sprite = null
 let hfhrfth: Sprite = null
 let CColumbos: Sprite = null
+let Authors: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
+Authors = sprites.create(img`
+    ..............................
+    ffffff.eeeeeee...fffffff......
+    ffffff.eeeeeee...fffffff......
+    ffeeff.e44444e...feeeeef......
+    eeeeee.4444444...eeeeeee......
+    efeefe.44f4f44...efeeefe......
+    eeeeee.4444444...eeeeeee......
+    efeefe.4f444f4...efeeefe......
+    effffe.44fff44...eefffee......
+    eeeeee.4444444...eeeeeee......
+    .4444...55555.....22222.......
+    .4444...55555.....22222.......
+    .4444...55555.....22222.......
+    .4444...55555.....22222.......
+    .4444...55555.....22222.......
+    .4444...55555.....22222.......
+    .8..8...8...8.....8...8.......
+    .8..8...8...8.....8...8.......
+    .8..8...8...8.....8...8.......
+    .8..8...8...8.....8...8.......
+    `, SpriteKind.Authors)
+tiles.placeOnTile(Authors, tiles.getTileLocation(7, 10))
 CColumbos = sprites.create(img`
     . . . . . . . f f f . . . . . . 
     . . . . f f f f f f f f f . . . 
@@ -1553,6 +1601,14 @@ scene.cameraFollowSprite(CColumbos)
 controller.moveSprite(CColumbos)
 CColumbos.setPosition(65, 100)
 CColumbos.setBounceOnWall(true)
+CColumbos.sayText("Hi Nice to Meet You", 2000, false)
+pause(3000)
+CColumbos.sayText("I'm Christopher Columbus", 5000, false)
+pause(3000)
+CColumbos.sayText("Overlap the people to figure out how the game works.")
+pause(40000)
+CColumbos.sayText("Collect 5 pieces of wood")
+pause(3000)
 for (let index = 0; index < 7; index++) {
     hfhrfth = sprites.create(img`
         ........................................
@@ -1582,12 +1638,6 @@ for (let index = 0; index < 7; index++) {
         `, SpriteKind.tree)
     tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass3)
 }
-CColumbos.sayText("Hi Nice to Meet You", 2000, false)
-pause(3000)
-CColumbos.sayText("I'm Christopher Columbus", 5000, false)
-pause(3000)
-CColumbos.sayText("Collect 5 pieces of wood")
-pause(3000)
 CColumbos.sayText("Once you get that, follow the gravel path to the castle", 5000, false)
 pause(5000)
 CColumbos.sayText("We will use the wood to make a boat, but we also need money.", 5000, false)
