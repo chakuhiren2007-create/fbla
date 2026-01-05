@@ -56,4 +56,5 @@ License: School Project.
 Authors: Icaro Yoshizawa Dos Santos, Aarya Patel, Vivaan Mishra
 
 
-* open [https://arcade.makecode.com/](https://arcade.makecode.com/)
+* open https://arcade.makecode.com/#editor
+  
