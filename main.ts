@@ -1636,7 +1636,7 @@ for (let index = 0; index < 7; index++) {
         ........................................
         ........................................
         `, SpriteKind.tree)
-    tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass3)
+    tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass1)
 }
 CColumbos.sayText("Once you get that, follow the gravel path to the castle", 5000, false)
 pause(5000)
