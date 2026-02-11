@@ -38,6 +38,8 @@ namespace SpriteKind {
     export const w8 = SpriteKind.create()
     export const waterfinder = SpriteKind.create()
     export const Authors = SpriteKind.create()
+    export const thing3 = SpriteKind.create()
+    export const thing4 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bandit, function (sprite, otherSprite) {
     game.gameOver(false)
@@ -403,6 +405,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
     pause(5000)
     CColumbos.sayText("Hmm, ok, I shall go explore.", 2000, false)
     tileUtil.setWalls(sprites.castle.tilePath5, false)
+    scapegoat.setKind(SpriteKind.thing4)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSprite) {
     CColumbos.sayText("Wow, I have never seen this fruit before", 2000, false)
@@ -1531,7 +1534,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.carib, function (sprite, otherSp
         CColumbos.follow(Thissavedmylifebro, 100)
     }
 })
-let scapegoat: Sprite = null
+sprites.onOverlap(SpriteKind.Player, SpriteKind.thing4, function (sprite, otherSprite) {
+	
+})
 let bandit2: Sprite = null
 let parrot: Sprite = null
 let pineapple: Sprite = null
@@ -1547,6 +1552,7 @@ let randomtrees: Sprite = null
 let tobacco: Sprite = null
 let COrn: Sprite = null
 let taino_person: Sprite = null
+let scapegoat: Sprite = null
 let nativefromtrinidad2: Sprite = null
 let waterfinder2: Sprite = null
 let Thissavedmylifebro: Sprite = null
