@@ -123,23 +123,23 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Authors, function (sprite, otherSprite) {
     CColumbos.sayText("Hi! How do I move?", 2000, false)
     pause(2000)
-    Authors.sayText("Hi we are the developers of the game! You can move using WASD or the arrow keys.", 5000, false)
+    Authors2.sayText("Hi we are the developers of the game! You can move using WASD or the arrow keys.", 5000, false)
     pause(5000)
     CColumbos.sayText("How do I interact with NPCs?", 2000, false)
     pause(2000)
-    Authors.sayText("You interact with the NPCs by overlapping them.", 5000, false)
+    Authors2.sayText("You interact with the NPCs by overlapping them.", 5000, false)
     pause(5000)
     CColumbos.sayText("How do I sail my boat?", 2000, false)
     pause(2000)
-    Authors.sayText("You sail your boat my not touching anything and letting the boat automatically go", 7000, false)
+    Authors2.sayText("You sail your boat my not touching anything and letting the boat automatically go", 7000, false)
     pause(5000)
     CColumbos.sayText("How do I get goods?", 5000, false)
     pause(5000)
-    Authors.sayText("You get goods by completing tasks.", 2000, false)
+    Authors2.sayText("You get goods by completing tasks.", 2000, false)
     pause(3000)
-    Authors.sayText("The goods you get is your score.", 2000, false)
+    Authors2.sayText("The goods you get is your score.", 2000, false)
     pause(2000)
-    Authors.sayText("BYE! Hope you enjoy our game!", 2000, false)
+    Authors2.sayText("BYE! Hope you enjoy our game!", 2000, false)
     pause(2000)
     sprites.destroyAllSpritesOfKind(SpriteKind.Authors)
 })
@@ -1554,13 +1554,13 @@ let Queen: Sprite = null
 let King: Sprite = null
 let hfhrfth: Sprite = null
 let CColumbos: Sprite = null
-let Authors: Sprite = null
+let Authors2: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
-Authors = sprites.create(img`
+Authors2 = sprites.create(img`
     ..............................
-    ffffff.eeeeeeee..fffffff......
-    ffffff.eeeeeeee..fffffff......
-    ffeeff.e444444e..feeeeef......
+    feeeef.eeeeeeee..fffffff......
+    feeeef.eeeeeeee..fffffff......
+    feeeef.e444444e..feeeeef......
     eeeeee.44444444..eeeeeee......
     efeefe.44f44f44..efeeefe......
     eeeeee.44444444..eeeeeee......
@@ -1578,7 +1578,7 @@ Authors = sprites.create(img`
     .8..8...8...8.....8...8.......
     .8..8...8...8.....8...8.......
     `, SpriteKind.Authors)
-tiles.placeOnTile(Authors, tiles.getTileLocation(7, 10))
+tiles.placeOnTile(Authors2, tiles.getTileLocation(7, 10))
 CColumbos = sprites.create(img`
     . . . . . . . f f f . . . . . . 
     . . . . f f f f f f f f f . . . 
