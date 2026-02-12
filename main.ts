@@ -142,6 +142,43 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Authors, function (sprite, other
     Authors2.sayText("BYE! Hope you enjoy our game!", 2000, false)
     pause(2000)
     sprites.destroyAllSpritesOfKind(SpriteKind.Authors)
+    tileUtil.setWalls(sprites.castle.tileGrass3, false)
+    tileUtil.setWalls(sprites.castle.tileGrass1, false)
+    tileUtil.setWalls(sprites.castle.tilePath5, false)
+    CColumbos.sayText("Collect 5 pieces of wood")
+    pause(3000)
+    for (let index = 0; index < 7; index++) {
+        hfhrfth = sprites.create(img`
+            ........................................
+            ........................................
+            .......................6............6...
+            ......................676..........676..
+            .....................6776e........6776..
+            ........bbccee......67776effffffe67776..
+            .......bdddbceeeeeeee6668ceeeccfff6768ee
+            ......bdbbbdbceeeeeeee668eeeeeeeeee668ec
+            .....bdbbdbbdceeeeeeee67776eeeeeeee67776
+            .....bdbdbdbdbceeeeeee6777eeeeeeeee6776e
+            ....bdbdbdbdbdceeeeeeee76eeeeeeeeeee76ee
+            ....bdbdbdbdbdceeeeeeee68eeeeeeeeeee78ee
+            ....bdbdbdbdbdceeeeeeee68eeeeeeeeeee78ee
+            ....bdbdbdbdbdfeeeeeeee76eeeeeeeeeee76ee
+            .....bdbdbdbdbfeeeeeee6777eeeeeeeee6777e
+            .....bdbbdbbdfeeeeeeee66776eeeeeeee66776
+            ......bdbbbdbfeeeeeec66eeeeeeeeeee66eeee
+            .......bdddbfeeeeecff778eeeeeeccff77eeee
+            ........bbcceeeccfc.67768........67768..
+            .....................6776.........6776..
+            ......................676..........676..
+            .......................6............6...
+            ........................................
+            ........................................
+            `, SpriteKind.tree)
+        tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass1)
+    }
+    CColumbos.sayText("Once you get that, follow the gravel path to the castle", 5000, false)
+    pause(5000)
+    CColumbos.sayText("We will use the wood to make a boat, but we also need money.", 5000, false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -1553,10 +1590,9 @@ let Thissavedmylifebro: Sprite = null
 let Queen: Sprite = null
 let King: Sprite = null
 let hfhrfth: Sprite = null
-let CColumbos: Sprite = null
 let Authors2: Sprite = null
+let CColumbos: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
-tiles.placeOnTile(Authors2, tiles.getTileLocation(7, 10))
 CColumbos = sprites.create(img`
     . . . . . . . f f f . . . . . . 
     . . . . f f f f f f f f f . . . 
@@ -1577,14 +1613,14 @@ CColumbos = sprites.create(img`
     `, SpriteKind.Player)
 scene.cameraFollowSprite(CColumbos)
 controller.moveSprite(CColumbos)
-CColumbos.setPosition(65, 100)
 CColumbos.setBounceOnWall(true)
+tiles.placeOnTile(CColumbos, tiles.getTileLocation(3, 7))
 CColumbos.sayText("Hi Nice to Meet You", 2000, false)
 pause(3000)
 CColumbos.sayText("I'm Christopher Columbus", 5000, false)
 pause(3000)
 CColumbos.sayText("Overlap the people to figure out how the game works.")
-pause(40000)
+pause(2000)
 Authors2 = sprites.create(img`
     feeeeef.......................
     feeeeefeeeeeeee..fffffff......
@@ -1607,37 +1643,4 @@ Authors2 = sprites.create(img`
     .8..8...8...8.....8...8.......
     .8..8...8...8.....8...8.......
     `, SpriteKind.Authors)
-CColumbos.sayText("Collect 5 pieces of wood")
-pause(3000)
-for (let index = 0; index < 7; index++) {
-    hfhrfth = sprites.create(img`
-        ........................................
-        ........................................
-        .......................6............6...
-        ......................676..........676..
-        .....................6776e........6776..
-        ........bbccee......67776effffffe67776..
-        .......bdddbceeeeeeee6668ceeeccfff6768ee
-        ......bdbbbdbceeeeeeee668eeeeeeeeee668ec
-        .....bdbbdbbdceeeeeeee67776eeeeeeee67776
-        .....bdbdbdbdbceeeeeee6777eeeeeeeee6776e
-        ....bdbdbdbdbdceeeeeeee76eeeeeeeeeee76ee
-        ....bdbdbdbdbdceeeeeeee68eeeeeeeeeee78ee
-        ....bdbdbdbdbdceeeeeeee68eeeeeeeeeee78ee
-        ....bdbdbdbdbdfeeeeeeee76eeeeeeeeeee76ee
-        .....bdbdbdbdbfeeeeeee6777eeeeeeeee6777e
-        .....bdbbdbbdfeeeeeeee66776eeeeeeee66776
-        ......bdbbbdbfeeeeeec66eeeeeeeeeee66eeee
-        .......bdddbfeeeeecff778eeeeeeccff77eeee
-        ........bbcceeeccfc.67768........67768..
-        .....................6776.........6776..
-        ......................676..........676..
-        .......................6............6...
-        ........................................
-        ........................................
-        `, SpriteKind.tree)
-    tiles.placeOnRandomTile(hfhrfth, sprites.castle.tileGrass1)
-}
-CColumbos.sayText("Once you get that, follow the gravel path to the castle", 5000, false)
-pause(5000)
-CColumbos.sayText("We will use the wood to make a boat, but we also need money.", 5000, false)
+tiles.placeOnTile(Authors2, tiles.getTileLocation(4, 7))
