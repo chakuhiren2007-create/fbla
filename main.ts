@@ -40,7 +40,7 @@ namespace SpriteKind {
     export const Authors = SpriteKind.create()
     export const interaction = SpriteKind.create()
 }
-// This controls the lose function towards  the bandit. 
+// This controls the lose function towards  the bandit.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bandit, function (sprite, otherSprite) {
     game.gameOver(false)
     game.setGameOverMessage(false, "DO BETTER NEXT TIME!")
@@ -227,7 +227,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         tiles.placeOnTile(interaction2, tiles.getTileLocation(3, 20))
     }
 })
-// the last island 
+// the last island
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w8, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w8)
     tiles.setCurrentTilemap(tilemap`level11`)
@@ -269,7 +269,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter3, function (sprite, othe
     game.setGameOverMessage(false, "They got you!")
     game.reset()
 })
-// ending part of last island 
+// ending part of last island
 sprites.onOverlap(SpriteKind.Player, SpriteKind.waterfinder, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
     CColumbos.sayText("Hello, I am Christopher Columbus, your friend sent me. ", 5000, false)
@@ -300,7 +300,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.waterfinder, function (sprite, o
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(99, 10))
     CColumbos.follow(Thissavedmylifebro, 100)
 })
-// starting dialogue at the last island 
+// starting dialogue at the last island
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
     tiles.setCurrentTilemap(tilemap`level12`)
@@ -385,8 +385,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSp
     info.changeScoreBy(50)
     CColumbos.sayText("Collect and then go back to native after collecting 2 things", 5000, false)
 })
-// block that shows  dialogue at the taino island 
-// 
+// block that shows  dialogue at the taino island
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w2)
     tiles.setCurrentTilemap(tilemap`level5`)
@@ -1594,7 +1593,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.carib, function (sprite, otherSp
         CColumbos.follow(Thissavedmylifebro, 100)
     }
 })
-// This code block shows the part about the starting title of the game up until the 2 masters come in. 
+// This code block shows the part about the starting title of the game up until the 2 masters come in.
 let scapegoat: Sprite = null
 let bandit2: Sprite = null
 let parrot: Sprite = null
