@@ -801,6 +801,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.interaction, function (sprite, o
         ..........1111.11dd................
         ..........1111.1111................
         `, SpriteKind.king)
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(5, 15))
     tiles.placeOnTile(King, tiles.getTileLocation(3, 17))
     Queen = sprites.create(img`
         . . . . . . 5 . 5 . . . . . . . 
@@ -1161,6 +1162,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.thing2, function (sprite, otherS
         `, SpriteKind.queen)
     scaling.scaleByPercent(King, -50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     tiles.placeOnTile(King, tiles.getTileLocation(3, 17))
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(5, 15))
     tiles.placeOnTile(Queen, tiles.getTileLocation(8, 17))
     pause(2000)
     Queen.sayText("Welcome back, what treasures did you find?", 15000, false)
@@ -1330,6 +1332,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w4, function (sprite, otherSprit
 // Columbus returns to Spain and talks with the Queen and King of Spain. He then sails his boat.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.thing, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.bandit)
+    tiles.placeOnTile(CColumbos, tiles.getTileLocation(5, 15))
     Queen.sayText("Congratulations for returning from the trip!", 5000, false)
     pause(5000)
     King.sayText("What treasures did you happen to fall upon?", 5000, false)
