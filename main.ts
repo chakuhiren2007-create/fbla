@@ -533,7 +533,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.crop, function (sprite, otherSpr
         CColumbos.sayText("Lets go back to the native and give him the crops!", 5000, false)
     }
 })
-// puts the trees in random direction
+// puts the trees in random direction and shows dialog between Columbus and the Taino people.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.W)
     music.stopAllSounds()
@@ -843,6 +843,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.interaction, function (sprite, o
     King.setFlag(SpriteFlag.Invisible, true)
     CColumbos.follow(Thissavedmylifebro)
 })
+// Shows dialog and boat sailing on Island 1
 sprites.onOverlap(SpriteKind.Player, SpriteKind.nativet, function (sprite, otherSprite) {
     if (info.score() >= 1500080) {
         taino_person.sayText("Thank you, I was too lazy to get those crops. For payment, I will give you half of these crops. ", 2000, false)
@@ -868,6 +869,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.nativet, function (sprite, other
         CColumbos.follow(Thissavedmylifebro, 100)
     }
 })
+// Shows dialog and boat sailing on Island 2
 sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (sprite, otherSprite) {
     lostdude2.follow(people2, 100)
     people.sayText("Thank you so much!", 2000, false)
@@ -975,6 +977,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+// Shows the dialog between Columbus and lostdude.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.lostdude, function (sprite, otherSprite) {
     CColumbos.sayText("Hey! Your people told me to look for you.", 2000, false)
     CColumbos.setKind(SpriteKind.helpfulcolumbus)
@@ -983,6 +986,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.lostdude, function (sprite, othe
     pause(2000)
     lostdude2.follow(CColumbos, 100)
 })
+// Columbus returns to Spain.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w6, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w6)
     tiles.setCurrentTilemap(tilemap`level6`)
@@ -1015,6 +1019,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w6, function (sprite, otherSprit
     tiles.placeOnTile(scapegoat2, tiles.getTileLocation(13, 21))
     CColumbos.sayText("Yay, I am back. Click the blue dot at the entrance of the castle. ", 2000, false)
 })
+// Shows the lose function towards fighter2.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter2, function (sprite, otherSprite) {
     game.gameOver(false)
     game.setGameOverMessage(false, "They got you!")
@@ -1097,6 +1102,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+// Shows the dialog between the Columbus and The Queen and King of Spain. Then it shows the ship sailing.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.thing2, function (sprite, otherSprite) {
     King = sprites.create(img`
         ........ffffffffff.................
@@ -1184,11 +1190,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.thing2, function (sprite, otherS
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(99, 10))
     CColumbos.follow(Thissavedmylifebro, 100)
 })
+// Shows the lose function towards fighter1.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter1, function (sprite, otherSprite) {
     game.gameOver(false)
     game.setGameOverMessage(false, "They got you!")
     game.reset()
 })
+// Shows the dialogue Columbus coming back home
 sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherSprite) {
     CColumbos.sayText("Wow, what an interesting specimen of bird.", 2000, false)
     pause(2000)
