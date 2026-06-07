@@ -40,11 +40,13 @@ namespace SpriteKind {
     export const Authors = SpriteKind.create()
     export const interaction = SpriteKind.create()
 }
+// This controls the lose function towards  the bandit. 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.bandit, function (sprite, otherSprite) {
     game.gameOver(false)
     game.setGameOverMessage(false, "DO BETTER NEXT TIME!")
     game.reset()
 })
+// Animates the up animation
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -121,6 +123,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+// Shows the 3 masters part dialogue.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Authors, function (sprite, otherSprite) {
     CColumbos.sayText("Hi! How do I move?", 2000, false)
     pause(2000)
@@ -181,6 +184,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Authors, function (sprite, other
     pause(5000)
     CColumbos.sayText("We will use the wood to make a boat, but we also need money.", 5000, false)
 })
+// Shows the scoring and the tree mechanics in the start.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroyAllSpritesOfKind(SpriteKind.tree)
@@ -217,12 +221,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         sprites.destroyAllSpritesOfKind(SpriteKind.tree)
         info.setScore(5)
         tiles.setCurrentTilemap(tilemap`level6`)
-        interaction = sprites.create(img`
+        interaction2 = sprites.create(img`
             2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
             `, SpriteKind.interaction)
-        tiles.placeOnTile(interaction, tiles.getTileLocation(3, 20))
+        tiles.placeOnTile(interaction2, tiles.getTileLocation(3, 20))
     }
 })
+// the last island 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w8, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w8)
     tiles.setCurrentTilemap(tilemap`level11`)
@@ -258,11 +263,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w8, function (sprite, otherSprit
     game.setGameOverMessage(true, "And off he went.")
     game.setGameOverEffect(true, effects.confetti)
 })
+// when fighter3 hits you, eliminated
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter3, function (sprite, otherSprite) {
     game.gameOver(false)
     game.setGameOverMessage(false, "They got you!")
     game.reset()
 })
+// ending part of last island 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.waterfinder, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
     CColumbos.sayText("Hello, I am Christopher Columbus, your friend sent me. ", 5000, false)
@@ -293,6 +300,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.waterfinder, function (sprite, o
     tiles.placeOnTile(CColumbos, tiles.getTileLocation(99, 10))
     CColumbos.follow(Thissavedmylifebro, 100)
 })
+// starting dialogue at the last island 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w7)
     tiles.setCurrentTilemap(tilemap`level12`)
@@ -369,6 +377,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w7, function (sprite, otherSprit
     CColumbos.sayText("Hmm, ok, I shall go explore.", 2000, false)
     tileUtil.setWalls(sprites.castle.tilePath5, false)
 })
+// shows the dialogue for collecting fruit at the taino island
 sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSprite) {
     CColumbos.sayText("Wow, I have never seen this fruit before", 2000, false)
     pause(2000)
@@ -376,6 +385,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fruit, function (sprite, otherSp
     info.changeScoreBy(50)
     CColumbos.sayText("Collect and then go back to native after collecting 2 things", 5000, false)
 })
+// block that shows  dialogue at the taino island 
+// 
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w2)
     tiles.setCurrentTilemap(tilemap`level5`)
@@ -474,6 +485,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w2, function (sprite, otherSprit
     tiles.placeOnRandomTile(COrn, sprites.castle.tileGrass3)
     tiles.placeOnRandomTile(tobacco, sprites.castle.tileGrass3)
 })
+// shows the change from the score to the dialogue
 sprites.onOverlap(SpriteKind.Player, SpriteKind.crop, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.crop)
     for (let index = 0; index < 4; index++) {
@@ -522,6 +534,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.crop, function (sprite, otherSpr
         CColumbos.sayText("Lets go back to the native and give him the crops!", 5000, false)
     }
 })
+// puts the trees in random direction
 sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.W)
     music.stopAllSounds()
@@ -672,6 +685,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.W, function (sprite, otherSprite
         `, SpriteKind.lostdude)
     tiles.placeOnRandomTile(lostdude2, sprites.castle.tileGrass3)
 })
+// Animates the left animation
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -748,7 +762,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+// shows the king and queen and sail animation length
 sprites.onOverlap(SpriteKind.Player, SpriteKind.interaction, function (sprite, otherSprite) {
+    sprites.destroyAllSpritesOfKind(SpriteKind.interaction)
     King = sprites.create(img`
         ........ffffffffff.................
         ......ffffffffffffff...............
@@ -883,6 +899,7 @@ sprites.onOverlap(SpriteKind.lostdude, SpriteKind.Spritesfromcuba, function (spr
     CColumbos.setImage(assets.image`boat`)
     CColumbos.follow(Thissavedmylifebro)
 })
+// Animates the right animation
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -1004,6 +1021,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fighter2, function (sprite, othe
     game.setGameOverMessage(false, "They got you!")
     game.reset()
 })
+// Animates the down animation
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     CColumbos,
@@ -1576,6 +1594,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.carib, function (sprite, otherSp
         CColumbos.follow(Thissavedmylifebro, 100)
     }
 })
+// This code block shows the part about the starting title of the game up until the 2 masters come in. 
 let scapegoat: Sprite = null
 let bandit2: Sprite = null
 let parrot: Sprite = null
@@ -1597,7 +1616,7 @@ let taino_person: Sprite = null
 let nativefromtrinidad2: Sprite = null
 let Thissavedmylifebro: Sprite = null
 let waterfinder2: Sprite = null
-let interaction: Sprite = null
+let interaction2: Sprite = null
 let hfhrfth: Sprite = null
 let Authors2: Sprite = null
 let CColumbos: Sprite = null
