@@ -227,7 +227,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.tree, function (sprite, otherSpr
         tiles.placeOnTile(interaction2, tiles.getTileLocation(3, 20))
     }
 })
-// the last island
+// Shows the dialogue Columbus has while on the last island. The game ends and the player wins here.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w8, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.w8)
     tiles.setCurrentTilemap(tilemap`level11`)
@@ -1204,6 +1204,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherS
     info.changeScoreBy(50)
     CColumbos.sayText("Collect and then go back to native after collecting 2 things", 2000, false)
 })
+// Shows dialogue from the Kalinagao tribe and Columbus. Columbus gets chased by the Kalinagao tribe and then sails his boat.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w4, function (sprite, otherSprite) {
     tiles.setCurrentTilemap(tilemap`level10`)
     controller.moveSprite(CColumbos, 100, 100)
@@ -1326,6 +1327,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.w4, function (sprite, otherSprit
     tiles.placeOnTile(Thissavedmylifebro, tiles.getTileLocation(0, 10))
     CColumbos.follow(Thissavedmylifebro, 100)
 })
+// Columbus returns to Spain and talks with the Queen and King of Spain. He then sails his boat.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.thing, function (sprite, otherSprite) {
     sprites.destroyAllSpritesOfKind(SpriteKind.bandit)
     Queen.sayText("Congratulations for returning from the trip!", 5000, false)
@@ -1352,6 +1354,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.thing, function (sprite, otherSp
     CColumbos.follow(Thissavedmylifebro, 100)
     controller.moveSprite(CColumbos, 100, 0)
 })
+// Shows the dialogue between Columbus and a native carib. Columbus then has to search for treasures.
 sprites.onOverlap(SpriteKind.Player, SpriteKind.w5, function (sprite, otherSprite) {
     tiles.setCurrentTilemap(tilemap`level13`)
     sprites.destroyAllSpritesOfKind(SpriteKind.w5)
